@@ -1,4 +1,4 @@
 lec-notes
 =========
 
-Compiled LaTeX notes for public use 
+Compiled LaTeX notes for public use.

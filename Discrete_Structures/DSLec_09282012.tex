@@ -1,0 +1,79 @@
+\sektion{2}{Class Lecture 9/28}
+\subsektion{Well-Ordering Principle}
+
+\begin{theorem}[Well Ordered Principle]
+$\forall n \in \NN ( n > 1 \to \exists p \in \NN ( p$ is prime $\wedge p|n)) $
+\end{theorem}
+\begin{proof}
+Let $n\in\NN$. Assume $n>1$. \textbf{Case 1:} $n$ is prime. $n|n$ \checkmark. \textbf{Case 2:} n is not prime. $\exists\ d\ \NN ((1<d<n) \wedge (d|n))$. A is of the form $A = \{ x | (1 < x < n) \wedge (x|n) \}$. $A \neq \emptyset$ because $d \subset A$. By the Well Ordering Principle $A$ has a least element $d^*\in A$. $\therefore\ (1 < r^* < n) \wedge (r^*|n)$. \textbf{Claim:} $r^*$ is prime.
+\end{proof}
+Proof: 
+\begin{enumerate}
+\item Let $n\in\NN$. Assume $n>1$
+\begin{enumerate}
+\item f
+	\begin{enumerate} 
+		\item Proof of Claim: by Contradiction.
+		\begin{enumerate}
+			\item Assume $r^*$ is not prime.
+			\item $\therefore$ there is an $s$ within $1<s<r^*$ such that $s|r^*$.
+			\item So $1<s<r^*<n$ and $s|r^*$ and $r^*|n$.
+			\item Hence $1<s<n$ and $s|n$.
+			\item $s\in A$ and $s<r^*$, the least element of A
+			\item $\therefore$ $r^*$ must be prime, \textbf{QED} for claim.
+		\end{enumerate}
+	\end{enumerate}
+	\item $r^*|n$ and $r^*$ is prime. Hence $n$ has a prime divisor \textbf{QED}.
+\end{enumerate}
+\end{enumerate}
+
+\newtheorem*{primes}{There are infinitely many primes.}
+\begin{primes}\end{primes}
+\textbf{Thm. 2.2.5} There are infinitely many primes.
+
+
+Proof: By Contradiction
+\begin{enumerate}
+\item Assume $p_1,p_2,...,p_k$ is a finite list of \textbf{all} the primes.
+\item Let $n=p_1\times p_2 \times p_3 \times ... \times p_k + 1$. $n>p_i$ for all primes.
+\item $\therefore$ $n$ is not prime.
+\item However, $n$ is divisible by a prime. $\therefore$ for some $i \le k$, $p_i|n$.
+\item Call $p_1,p_2,...,p_k = m$
+\item So $n = m + 1$, and $p_i|n$, so $n=p_iq$ for some $q\in \ZZ$
+\item $pi|m$ because $m = p_i(p_1p_2,...,p_{i-1},p_{i+1},...p_k)$ %m=p_i(t)
+\item $n = m + 1$, $p_iq = p_i(t) + 1$, hence $ 1 = p_i \underbrace{\left(q-t\right)}_{\in \ZZ} $ 
+
+%Contradiction pi >= 2 and pi < 1 
+\item \textbf{QED}
+\end{enumerate}
+
+\subsektion{Induction}
+
+Proving "$\forall$ statement" about a well-ordered set.
+
+Idea: % You have dominoes, and these are all closely stacked together. You knock the first one over, what happens? The rest of them fall over. So the first domino falls, assume the kth dominue fell. From the assumption you argue the all fall over.
+
+Setting: Want to prove $\forall n \in \NN \left( n \ge a \to \underbrace{P(n)}_{some\ statement} \right)$
+
+Proof: Base case
+\begin{enumerate}
+\item Prove $P(a)$ is true.
+\item \textbf{Induction Step} $\to$ $\forall k \in \NN ((k\ge a \wedge P(k)) \to P(k+1))$: Assume $k \ge a \wedge P(k)$
+% Describe this situation with domino
+	\begin{enumerate}
+	\item From this assumption, prove $P(k+1)$
+	\end{enumerate}
+\end{enumerate}
+
+Prove: \[ \forall n \in \NN ( 0+1+...+n = \sum_{i=0}^n i = \frac{n(n+1)}{2} \]
+
+\begin{enumerate}
+\item Proof by induction. Base Case: $n = 0$.
+\item Induction Step: Let $k \ge 0$ and assume $\displaystyle\sum_{i=0}^n i = \frac{k(k+1)}{2} $
+	\begin{enumerate}
+	\item To Show: $\displaystyle\sum_{i=0}^{k+1} i = 0 + 1 + 2 + ... + k + (k+1) = \frac{(k+1)((k+1)+1)}{2} $
+	\end{enumerate}
+\item sumation = (k(k+1))/2 + (k+1) = (k+1)(k/2 + 1) = (k+1)(k/2 + 2/2) = (k+1)((k+2)/2) = (k+1)((k+1)+1)/2 QED 
+\end{enumerate}
+
+

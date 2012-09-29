@@ -1,0 +1,148 @@
+\documentclass[12pt,twoside]{article}
+
+%%%%%%% Pagestyle stuff %%%%%%%%%%%%%%%%%
+ \usepackage{fancyhdr}                 %%
+   \pagestyle{fancy}                   %%
+   \fancyhf{} %delete the current section for header and footer
+ \usepackage[paperheight=11in,%        %%
+             paperwidth=8in,%        %%
+             outer=1in,%             %%
+             inner=1in,%             %%
+             bottom=.7in,%             %%
+             top=.7in,%                %%
+             includeheadfoot]{geometry}%%
+%    \columnsep 3em
+   \setlength{\headwidth}{6in}       %% 
+   \fancyhead[RO,LE]{\thepage}         %%
+   \fancyhead[LO,RE]{\sectionname}     %%
+   \setlength{\headheight}{14.5pt}     %%
+   \raggedbottom                       %%
+%%%%%%% End Pagestyle stuff %%%%%%%%%%%%%
+ 
+ \usepackage{etex}          % For some reason, pdflatex breaks if I don't include the etex package
+ \usepackage{amsmath}       % I think this gives me some symbols
+ \usepackage{amsthm}        % Does theorem stuff
+ \usepackage{amssymb}       % more symbols and fonts
+ \usepackage{empheq}        % Some more extensible arrows, like \xmapsto
+ \usepackage{enumitem}
+ \usepackage{mathrsfs}      % Sheafy font \mathscr{}
+% \usepackage{picinpar}     % for pictures in paragraphs
+% \usepackage{tikz}
+ \usepackage[nofancy]{rcsinfo}
+ \usepackage[all]{xy}       % Include XY-pic
+    \SelectTips{cm}{10}     % Use the nicer arrowheads
+    \everyxy={<2.5em,0em>:} % Sets the scale I like
+ \usepackage[colorlinks,
+             linkcolor=black,
+             pagebackref,
+             bookmarksnumbered=true]{hyperref}
+
+%%%%%%% Stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \newcount\n
+ \newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1}\n=\count0 \newpage
+\ifnum\count0=\n \ifnum\count0>1\ \newpage \fi\fi\section{#2} \gdef\sectionname{#1\quad #2, v.~\rcsInfoMonth-\rcsInfoDay}}
+ \newcommand{\subsektion}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
+ %% This is the empty section title, before any section title is set %%
+ \newcommand\sectionname{}                                           %%
+%%%%%%% End stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
+ \renewcommand{\theequation}{\thesection.\arabic{equation}}         %%
+ \makeatletter                                                      %%
+    \@addtoreset{equation}{section} % Make the equation counter reset each section
+    \@addtoreset{footnote}{section} % Make the footnote counter reset each section
+                                                                    %%
+ \newenvironment{warning}[1][]{%                                    %%
+    \begin{trivlist} \item[] \noindent%                             %%
+    \begingroup\hangindent=2pc\hangafter=-2                         %%
+    \clubpenalty=10000%                                             %%
+    \hbox to0pt{\hskip-\hangindent\manfntsymbol{127}\hfill}\ignorespaces%
+    \refstepcounter{equation}\textbf{Warning~\theequation}%         %%
+    \@ifnotempty{#1}{\the\thm@notefont \ (#1)}\textbf{.}            %%
+    \let\p@@r=\par \def\p@r{\p@@r \hangindent=0pc} \let\par=\p@r}%  %%
+    {\hspace*{\fill}$\lrcorner$\endgraf\endgroup\end{trivlist}}     %%
+                                                                    %%
+ \newenvironment{exercise}[1][]{\begin{trivlist}%                   %%
+    \item{\bf Exercise\@ifnotempty{#1}{ #1}. }\it}{\end{trivlist}}   %%
+ \newenvironment{solution}{\begin{trivlist}%                        %%
+    \item{\it Solution.}}{\end{trivlist}}                           %%
+                                                                    %%
+ \def\newprooflikeenvironment#1#2#3#4{%                             %%
+      \newenvironment{#1}[1][]{%                                    %%
+          \refstepcounter{equation}                                 %%
+          \begin{proof}[{\rm\csname#4\endcsname{#2~\theequation}%   %%
+          \@ifnotempty{##1}{\the\thm@notefont \ (##1)}\csname#4\endcsname{.}}]%%
+          \def\qedsymbol{#3}}%                                      %%
+         {\end{proof}}}                                             %%
+ \makeatother                                                       %%
+                                                                    %%
+ \newprooflikeenvironment{definition}{Definition}{$\diamond$}{textbf}%
+ \newprooflikeenvironment{example}{Example}{$\diamond$}{textbf}     %%
+ \newprooflikeenvironment{remark}{Remark}{$\diamond$}{textbf}       %%
+                                                                    %%
+ \theoremstyle{plain}                                               %%
+ \newtheorem{theorem}[equation]{Theorem}                            %%
+ \newtheorem*{claim}{Claim}                                         %%
+ \newtheorem*{lemma*}{Lemma}                                        %%
+ \newtheorem*{theorem*}{Theorem}                                    %%
+ \newtheorem{lemma}[equation]{Lemma}                                %%
+ \newtheorem{corollary}[equation]{Corollary}                        %%
+ \newtheorem{proposition}[equation]{Proposition}                    %%
+%%%%%%%%%%% End Theorem Styles and Counters %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% These three lines load and resize a caligraphic font %%%%%%%%%
+%%% which I use whenever I want lowercase \mathcal %%%%%%%%%%%%%%%
+ \DeclareFontFamily{OT1}{pzc}{}                                 %%
+ \DeclareFontShape{OT1}{pzc}{m}{it}{<-> s * [1.100] pzcmi7t}{}  %%
+ \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}                %%
+                                                                %%
+%%% and this is manfnt; used to produce the warning symbol %%%%%%%
+ \DeclareFontFamily{U}{manual}{}                                %%
+ \DeclareFontShape{U}{manual}{m}{n}{ <->  manfnt }{}            %%
+ \newcommand{\manfntsymbol}[1]{%                                %%
+    {\fontencoding{U}\fontfamily{manual}\selectfont\symbol{#1}}}%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Begin Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ %Number Sets
+ \newcommand{\CC}{\mathbb{C}}
+ \newcommand{\NN}{\mathbb{N}}
+ \newcommand{\QQ}{\mathbb{Q}}
+ \newcommand{\RR}{\mathbb{R}}
+ \newcommand{\ZZ}{\mathbb{Z}}
+
+ %Derivatives
+ \newcommand\der[2]{\frac{d #1}{d #2}}
+ \newcommand\pder[2]{\frac{\partial #1}{\partial #2}}
+ 
+ %Greek Letters
+ \newcommand{\DDelta}{\Delta}
+ \newcommand{\Ga}{\Gamma}
+ \newcommand{\ga}{\gamma}
+ \newcommand{\om}{\omega}
+ \newcommand{\Om}{\Omega}
+ 
+%%%%%%%%%%%% Begin Anton's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % Small and Large Matricies
+ \newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
+ \newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
+ 
+%\newcommand{\pb}{\rule{.4pt}{5.4pt}\rule[5pt]{5pt}{.4pt}\llap{$\cdot$\hspace{1pt}}}
+%\newcommand{\po}{\rule{5pt}{.4pt}\rule{.4pt}{5.4pt}\llap{$\cdot$\hspace{1pt}}}
+%\newcommand{\qbinom}[2]{\left[\frac{#1}{#2}\right]_q}
+
+ \newcommand{\bbar}[1]{\setbox0=\hbox{$#1$}\dimen0=.2\ht0 \kern\dimen0 \overline{\kern-\dimen0 #1}}
+ \renewcommand{\H}{\mathcal{H}} % old \H{x} is an x with a weird umlaut in text mode
+ \newcommand{\hhat}[1]{\widehat{#1}}
+ \renewcommand{\labelitemi}{--}  % changes the default bullet in itemize
+ \newcommand{\inn}[1]{\accentset{\circ}{#1}}
+ \newcommand{\lotimes}{\overset{L}{\otimes}}
+ 
+%%%%%%%%%%%% End Anton's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \openout0=lastupdated.html
+ \write0{\today}
+ \closeout0
+ 
