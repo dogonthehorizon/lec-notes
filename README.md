@@ -1,4 +1,4 @@
 lec-notes
 =========
 
-Compiled LaTeX notes for public use. More information can be found at http://notes.binaryruminations.com
+Compiled LaTeX notes for public use. More information can be acquired via e-mail: freire14 (at) up (dot) edu.
