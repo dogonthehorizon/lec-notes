@@ -1,16 +1,17 @@
 
-\sektion{1}{Matrix Algebra}
+\sektion{2.1}{Matrix Algebra -- Class Lecture}
 
 \subsektion{Dimension and Rank} 
-If W is a subspace of $\mathbb{R}^n$, any set of vectors X for the span X = W is called a spanning set of W.
+\begin{definition}If $W$ is a subspace of $\RR^n$, any set of vectors $X$ for the span $X = W$ is called a spanning set of $W$. If in addition $X$ is linearly independent, $X$ is called a base for $W$.
+\end{definition}
  
-If in addition X is linearly independent, X is called a bse for W
- 
-Def$^n$: The dimension of W is the number of vectors in a basis for W 
-  -- dim(W) = $|$x$|$ 
-  -- lemma Dim(W) is well defined, any subspace with a finite    \ \ spanning set will have the same number of vectors in an basis
- 
-Proof: Suppose $X$ and $Y$ are bases for W with $\ell$ and $m$ vectors respectively; Without loss of generality suppose $\ell$ $<$ $m$
+\begin{definition}The dimension of $W$ is the number of vectors in a basis for $W$
+\begin{itemize} 
+  \item dim(W) = $|$x$|$ 
+  \item lemma Dim(W) is well defined, any subspace with a finite    \ \ spanning set will have the same number of vectors in an basis
+\end{itemize}
+\end{definition}
+\begin{proof}Suppose $X$ and $Y$ are bases for W with $\ell$ and $m$ vectors respectively; Without loss of generality suppose $\ell$ $<$ $m$
 
 \[X = \{ \vec{b_1} , \vec{b_2}, ... \vec{b_\ell} \}\]
 \[Y = \{ \vec{c_1} , \vec{c_2}, ... \vec{c_m} \}\]
@@ -19,23 +20,11 @@ Proof: Suppose $X$ and $Y$ are bases for W with $\ell$ and $m$ vectors respectiv
 Given an $m$ x $n$ matrix A
 \[ \vec{T}(x) = A\vec{x}\]
 is a linear transformation \[\vec{T}:\mathbb{R}^n \to \mathbb{R}^m \]
+\end{proof}
+\begin{definition}The column space of A is the subspace of $\mathbb{R}^m$ spanned by the collumns of A. The rank of A is dim(col.sp.(A)). The null space of A is the subspace of $\mathbb{R}^n$ which is the solution set to $A\vec{x} = \vec{0}$ "nullspace(A)". The nullify of A is the null(A) = dim(nullspace(A))
+\end{definition}
 
-The column space of A is the subspace of $\mathbb{R}^m$ spanned by the collumns of A
- 
-The rank of A is dim(col.sp.(A))
- 
-The null space of A is the subspace of $\mathbb{R}^n$ which is the solution set to $A\vec{x} = \vec{0}$ "nullspace(A)"
- 
-The nullify of A is the null(A) = dim(nullspace(A))
- 
-\textbf{Rank Thm$^m$:} If a is $m \times n$ then rank(A) + null(A) = n
- 
-\subsection{Determinants}
- 
-Given a 2x2 matrix ( a, b | c, d)
- 
-det( a, b | c, d) = || a, b | c, d || = ad - bc
- 
-(a,b | c,d) is invertible exactly when ad-bc = 0
+\begin{theorem}[Rank Theorem] If $A$ is an $m \times n$ matrix then rank($A$) + null($A$) = $n$.
+\end{theorem}
 
 

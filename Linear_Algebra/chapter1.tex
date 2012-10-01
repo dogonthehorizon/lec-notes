@@ -1,0 +1,49 @@
+
+\sektion{1}{Linear Equations in Linear Algebra}
+
+\subsektion{Systems of Linear Equations}
+\begin{definition} A \textbf{linear equation} in the variables $x_1,\cdots,x_n$ is an equation that can be writen in the form
+\[ a_1,x_1 + a_2x_2 + \cdots + a_nx_n = b \]
+where $b$ and the coefficients $a_1,\cdots,a_n$ are real or complex numbers.
+\end{definition}
+\begin{definition}
+A \textbf{system of linear equations}, or a linear system, is a collection of one or more linear equations involving the same variables.
+\end{definition}
+\begin{example}
+The following is an example of a system of linear equations:
+\[ \begin{array}{rrrrrrr} 2x_1 & - & x_2 & + & 1.5x_3 & = &  8 \\
+						   x_1 &   &     & - &   4x_3 & = & -7 \end{array}\]
+\end{example}
+\begin{definition}
+A \textbf{solution} of the system is a list $\left( s_1,s_2,\cdots,s_n \right)$ of numbers that makes each equation a true statement when the values of $s_1,s_2,\cdots,s_n$ are substituted for $x_1,x_2,\cdots,x_n$ respectively.
+\end{definition}
+\begin{definition}
+A \textbf{solution set} is the set of all possible solutions of the linear system.
+\end{definition}
+\begin{definition}
+Two linear systems are \textbf{equivalent} if they have the same solution set.
+\end{definition}
+We generally consider linear equations to have:
+\begin{itemize}
+\item No solution.
+\item Exactly on solution.
+\item Infinitely many solutions.
+\end{itemize}
+\begin{definition}
+These systems are \textbf{consistent} if it has either one solution or infinitely many solutions, and \textbf{inconsistent} if it has no solution.
+\end{definition}
+\subsektion{Matrix Notation}
+\begin{example} These linear equations can be represented in matrix from. Given the following system
+\[ \begin{array}{rrrrrrr} x_1 & - & 2x_2 & + &  x_3 & = & 0 \\
+						      &   & 2x_2 & - & 8x_3 & = & 8 \\
+						-4x_1 & + & 5x_2 & + & 9x_3 & = & -9 \end{array} \]
+we take the coefficients of each variable and align them in a matrix like so
+\[ \brmat{1 & -2 & 1 \\ 0 & 2 & -8 \\ -4 & 5 & 9} \]
+
+We generally think of the above matrix as the \textbf{coefficient matrix} while the matrix below is known as the \textbf{augmented matrix}
+\[ \brmat{1 & -2 & 1 & 0 \\ 0 & 2 & -8 & 8 \\ -4 & 5 & 9 & -9} \]
+\end{example}
+\subsektion{Solving a Linear System}
+Solving linear systems is almost identical in nature to how one solves matricies: row reduction. For a review of row reduction and echelon forms consult the WikiBooks \href{http://en.wikibooks.org/wiki/Linear_Algebra/Row_Reduction_and_Echelon_Forms}{article} regarding the topic.
+
+

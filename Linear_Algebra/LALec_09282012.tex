@@ -1,12 +1,11 @@
 
-\sektion{3}{Chapter 3}
+\sektion{3.1}{Determinants -- Class Lecture}
 
 \subsektion{Determinants}
-det(a \& b $|$ c \& d ) = $|$ a \& b $||$ c \& d $|$ = ad - bc
-
+det$\Matx{a & b \\ c & d}$ = $\begin{vmatrix}a & b \\ c & d\end{vmatrix} = ad - bc$
 
 We're trying to check that none of the rows are linear combinatons of the other. Find the least common multiple, which would be the most straightfoward. Take a bunch of determinants where we are checking that.
-\\ \\
+\begin{example}
 \[ \left[ \begin{array}{lll} a_{11} & a_{12} & a_{13} \\
 					  a_{21} & a_{22} & a_{23} \\
 					  a_{31} & a_{32} & a_{33} 
@@ -14,23 +13,26 @@ We're trying to check that none of the rows are linear combinatons of the other.
 								  a_{32} & a_{33} 
 					\end{array}\right| \]
 
+\end{example}
+\begin{definition}
 
-A is nxn and fixed k ,
+\begin{itemize}
+	\item $A$ is an $n\times n$ matrix with a fixed $k$.
+	\item det(A) = $|\ a_{ij}\ |$ = $\displaystyle \sum^n_{k=1}$ $a_{k\ell}$ (-1)$^{k+\ell}$ det(A$_{k\ell}$)
+	\item A$_{k\ell}$ is A less the kth row and $\ell$th column.
+\end{itemize}
+\end{definition}
 
-det(A) = $|\ a_{ij}\ |$ = sigma a$_{k\ell}$ (-1)$^{k+\ell}$ det(A$_{k\ell}$)
 
-A$_{k\ell}$ is A less the kth row and $\ell$th column.
-
-Ex:
-
+\begin{example}
 \[ \left[ \begin{array}{rrr} 3 & 5 & -1 \\ 7 & 2 & 0 \\ 0 & 4 & -4 \end{array} \right] \]
 
 \[ (-1) \left| \begin{array}{ll} 7 & 2 \\ 0 & 4 \end{array} \right| + (0) \left| \begin{array}{ll} 3 & 5 \\ 0 & 4 \end{array} \right| + (-4) \left| \begin{array}{ll} 3 & 5 \\ 7 & 2 \end{array} \right| \]
 
 \[ -28 - 0 + 116 = 88 \]
 
-A is invertible if and only iff det(A) $\neq$ 0
-
+$A$ is invertible $\iff$ det($A$) $\neq$ 0
+\end{example}
 \subsektion{Properties of Determinants}
 
 Consider the three types of elemntary matricies:
@@ -38,20 +40,15 @@ Consider the three types of elemntary matricies:
 \[ E_\alpha = \left( \begin{array}{lll} 1 & 0 & 0 \\ 0 & \alpha & 0 \\ 0 & 0 & 1 \end{array} \right) \\ \alpha \neq 0\]
 \[ E_k = \left( \begin{array}{lll} 1 & 0 & k \\ 0 & \alpha & 0 \\ 0 & 0 & 1 \end{array} \right) \\ k \neq 0\]
 \[ E_{ij} = Inversion\ row\ i,\ j \]
-
-det(E$_\alpha$) = $\alpha$
-
-det(E$_k$) = 1
-
-det(E$_{ij}$) = ?
-
-When n = 2 
-
-det$\left( \begin{array}{ll} 0 & 1 \\ 1 & 0 \end{array} \right) = -1 $
-
-Now suppose for some n $>=$ 2 that any row intersetion matrix I$_{ij}$ satisfies det(I$_{ij}$) = -1. Now fix $1<= i < j <= n+1 $ and consider det(I$_{ij}$). If either $i>=2$ or $j<=n$ then I$_{ij}$ = first row and first column or last row and last column.
-
+\begin{itemize}
+\item det(E$_\alpha$) = $\alpha$
+\item det(E$_k$) = 1
+\item det(E$_{ij}$) = ?
+\end{itemize}
+\begin{proof}
+When $n = 2$. det$\left( \begin{array}{ll} 0 & 1 \\ 1 & 0 \end{array} \right) = -1 $. Now suppose for some $n >= 2$ that any row intersection matrix $I_{ij}$ satisfies det$(I_{ij}) = -1$. Now fix $1<= i < j <= n+1 $ and consider det($I_{ij}$). If either $i>=2$ or $j<=n$ then $I_{ij}$ = first row and first column or last row and last column.
 det(I$_{i-1,j-1}$)
-
-
 det(I$_{1, n+1}$) = (-1)$^{1+n+1}$ det(B) = (-1)$^{1+n+1}$(-1)$^{1+n}$ = (-1)
+\end{proof}
+
+

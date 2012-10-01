@@ -23,12 +23,10 @@
  \usepackage{amsmath}       % I think this gives me some symbols
  \usepackage{amsthm}        % Does theorem stuff
  \usepackage{amssymb}       % more symbols and fonts
-%  \usepackage{accents}
-%  \usepackage{bbm}           % for the nice blackboard bold 1
  \usepackage{empheq}        % Some more extensible arrows, like \xmapsto
  \usepackage{enumitem}
  \usepackage{mathrsfs}      % Sheafy font \mathscr{}
-% \usepackage{picinpar}      % for pictures in paragraphs
+% \usepackage{picinpar}     % for pictures in paragraphs
 % \usepackage{tikz}
  \usepackage[nofancy]{rcsinfo}
  \usepackage[all]{xy}       % Include XY-pic
@@ -38,12 +36,16 @@
              linkcolor=black,
              pagebackref,
              bookmarksnumbered=true]{hyperref}
+ \usepackage{hyperref}
+ \usepackage{hevea}
+ \loadcssfile{http://notes.binaryruminations.com/css/notes.css}
 
 %%%%%%% Stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newcount\n
  \newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1}\n=\count0 \newpage
 \ifnum\count0=\n \ifnum\count0>1\ \newpage \fi\fi\section{#2} \gdef\sectionname{#1\quad #2, v.~\rcsInfoMonth-\rcsInfoDay}}
  \newcommand{\subsektion}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
+ \newcommand{\subsubsektion}[1]{\subsubsection*{#1}}
  %% This is the empty section title, before any section title is set %%
  \newcommand\sectionname{}                                           %%
 %%%%%%% End stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%
@@ -105,176 +107,46 @@
     {\fontencoding{U}\fontfamily{manual}\selectfont\symbol{#1}}}%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%% Anton's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \def\<{\langle}
- \def\>{\rangle}
- \newcommand{\anton}[1]{[[\ensuremath{\bigstar\bigstar\bigstar} #1]]}
- \renewcommand\1{\mathbbm{1}}
- \renewcommand{\AA}{\mathbb{A}}
- \newcommand\A{\text{\sf A}}
- \newcommand{\ab}{\text{\sf Ab}}
- \newcommand{\Ad}{\mathrm{Ad}}
- \newcommand{\ad}{\mathrm{ad}}
- \newcommand{\alg}{\text{\sf Alg}}
- \newcommand{\aff}{\text{\sf Aff}}
- \DeclareMathOperator{\ann}{ann}
- \DeclareMathOperator{\aut}{Aut}
- \DeclareMathOperator{\Aut}{Aut}
- \newcommand{\B}{\text{\sf B}}
- \def\b{\text{\sf B}}
-% \newcommand{\bbar}[1]{\overline{#1}}
- \newcommand{\bbar}[1]{\setbox0=\hbox{$#1$}\dimen0=.2\ht0 \kern\dimen0 \overline{\kern-\dimen0 #1}}
- \DeclareMathOperator{\ber}{Ber}
+%%%%%%%%%%%% Begin Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ %Number Sets
  \newcommand{\CC}{\mathbb{C}}
- \newcommand{\C}{\text{\sf C}}
- \newcommand{\cat}{\text{\sf Cat}}
- \DeclareMathOperator{\ch}{ch}
- \newcommand{\chain}{\text{\sf Chain}}
- \DeclareMathOperator{\codim}{codim}
- \newcommand{\coh}{\text{\sf Coh}}
- \DeclareMathOperator{\coker}{coker}
- \DeclareMathOperator{\colim}{colim}
- \newcommand{\csalg}{\text{\sf cSAlg}}
- \newcommand{\cw}{\text{\sf CW}}
- \newcommand{\D}{\text{\sf D}}
- \newcommand{\DDelta}{\Delta}
+ \newcommand{\NN}{\mathbb{N}}
+ \newcommand{\QQ}{\mathbb{Q}}
+ \newcommand{\RR}{\mathbb{R}}
+ \newcommand{\ZZ}{\mathbb{Z}}
+
+ %Derivatives
  \newcommand\der[2]{\frac{d #1}{d #2}}
- \DeclareMathOperator{\Der}{\sf Der}
- \let\div\relax % old \div is the "divides sign"
- \DeclareMathOperator{\div}{div}
- \newcommand{\e}{\varepsilon}
- \DeclareMathOperator{\End}{End}
- \newcommand{\E}{\mathcal{E}}
- \DeclareMathOperator\ext{Ext}
- \newcommand{\F}{\mathcal{F}}
- \newcommand{\FF}{\mathbb{F}}
- \newcommand\fr{\text{\sf Fr}}
- \newcommand\fun{\text{\sf Fun}}
- \newcommand\fsalg{\text{\sf FSAlg}}
- \newcommand{\g}{\mathfrak{g}}
- \newcommand{\G}{\mathcal{G}}
+ \newcommand\pder[2]{\frac{\partial #1}{\partial #2}}
+ 
+ %Greek Letters
+ \newcommand{\DDelta}{\Delta}
  \newcommand{\Ga}{\Gamma}
  \newcommand{\ga}{\gamma}
- \newcommand{\GG}{\mathbb{G}}
- \newcommand{\gl}{\mathfrak{gl}}
- \newcommand{\gpoid}{\text{\sf Gpoid}}
- \newcommand\gring{\text{\sf GRing}}
- \newcommand\gp{\text{\sf Gp}}
- \newcommand\gvect{\text{\sf GVect}}
- \newcommand{\h}{\mathfrak{h}}
- \renewcommand{\H}{\mathcal{H}} % old \H{x} is an x with a weird umlaut in text mode
- \newcommand{\HH}{\mathbb{H}}
- \DeclareMathOperator{\hilb}{Hilb}
- \newcommand\hchain{\text{\sf h-Chain}}
- \newcommand{\hhat}[1]{\widehat{#1}}
- \let\hom\relax % kills the old hom, which is lowercase
- \DeclareMathOperator{\hom}{Hom}
- \DeclareMathOperator{\Hom}{\mathcal{H}\kern-.125em\mathpzc{om}}
- \DeclareMathOperator{\HOM}{HOM}
- \renewcommand{\labelitemi}{--}  % changes the default bullet in itemize
- \newcommand{\I}{\mathcal{I}}
- \DeclareMathOperator{\id}{id}
- \DeclareMathOperator{\im}{im}
- \newcommand{\inn}[1]{\accentset{\circ}{#1}}
- \newcommand{\irr}{\mathrm{irreg}}
- \DeclareMathOperator{\isom}{\underline{Isom}}
- \newcommand{\J}{\mathcal{J}}
- \renewcommand{\k}{\mathfrak{k}}
- \newcommand{\K}{\mathcal{K}}
- \newcommand{\kan}{\text{\sf Kan}} 
- \renewcommand{\L}{\mathcal{L}}
- \DeclareMathOperator{\lie}{Lie}
- \newcommand{\lotimes}{\overset{L}{\otimes}}
- \newcommand{\m}{\mathfrak{m}}
- \newcommand{\M}{\mathcal{M}}
- \DeclareMathOperator{\mat}{Mat}
- \newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
- \newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
- \newcommand{\man}{\text{\sf Man}}
- \renewcommand{\mod}{\textrm{-\sf mod}}
- \DeclareMathOperator{\mor}{Mor}
- \newcommand{\nn}{\mathfrak{n}}
- \newcommand{\N}{\mathcal{N}}
- \DeclareMathOperator{\nat}{Nat}
- \DeclareMathOperator{\Nat}{NAT}
- \newcommand{\NN}{\mathbb{N}}
- \renewcommand{\O}{\mathcal{O}}
  \newcommand{\om}{\omega}
  \newcommand{\Om}{\Omega}
- \newcommand{\p}{\mathfrak{p}}
- \newcommand{\pb}{\rule{.4pt}{5.4pt}\rule[5pt]{5pt}{.4pt}\llap{$\cdot$\hspace{1pt}}}
- \newcommand{\po}{\rule{5pt}{.4pt}\rule{.4pt}{5.4pt}\llap{$\cdot$\hspace{1pt}}}
- \renewcommand{\P}{\mathcal{P}}
- \newcommand\pder[2]{\frac{\partial #1}{\partial #2}}
- \newcommand{\PP}{\mathbb{P}}
- \DeclareMathOperator{\pic}{Pic}
- \newcommand{\pre}{\mathrm{pre}}
- \DeclareMathOperator{\presh}{\sf PreSh}
- \DeclareMathOperator{\proj}{Proj}
- \DeclareMathOperator{\Proj}{\mathcal{P}\kern-.125em\mathpzc{roj}}
- \newcommand{\qbinom}[2]{\left[\frac{#1}{#2}\right]_q}
- \newcommand{\qco}{\text{\sf Qcoh}}
- \newcommand{\QQ}{\mathbb{Q}}
- \newcommand{\qft}{\mathit{QFT}}
- \newcommand{\quot}{\mbox{\rm /\!\!/}}
- \renewcommand{\r}{\mathfrak{r}} % old \r{x} is a little circle over x in text mode
- \newcommand{\rmod}{\text{\sf mod-}}
- \newcommand\rb{\text{\sf RB}}
- \newcommand{\reg}{\mathrm{reg}}
- \newcommand\riem{\text{\sf Riem}}
- \newcommand{\ring}{\text{\sf Ring}}
- \DeclareMathOperator{\rk}{rk}
- \newcommand{\RR}{\mathbb{R}}
- \let\SS=\S
- \renewcommand{\S}{\mathcal{S}}
- \newcommand{\salg}{\text{\sf SAlg}}
- \DeclareMathOperator{\sch}{\sf Sch}
- \DeclareMathOperator{\sdim}{sdim}
- \DeclareMathOperator{\set}{\sf Set}
- \renewcommand{\setminus}{\smallsetminus}
- \DeclareMathOperator{\sh}{\sf Sh}
- \newcommand\slie{\text{\sf SLie}}
- \renewcommand{\sl}{\mathfrak{sl}}
- \newcommand{\sman}{\text{\sf SMan}}
- \DeclareMathOperator{\spec}{Spec}
- \DeclareMathOperator{\Spec}{\mathcal{S}\!\mathpzc{pec}}
- \DeclareMathOperator{\specm}{Specm}
- \DeclareMathOperator{\spin}{Spin}
- \DeclareMathOperator{\str}{str}
- \DeclareMathOperator{\supp}{Supp}
- \newcommand{\su}{\mathfrak{su}}
- \newcommand\svect{\text{\sf SVect}}
- \DeclareMathOperator{\sym}{Sym}
-% \renewcommand\t{\tau}  % old \t is something to do with accents
- \renewcommand{\t}{\mathfrak{t}}
- \newcommand{\T}{\mathcal{T}}
- \newcommand\tft{\mathit{TFT}}
- \newcommand{\tmf}{\mathit{TMF}}
- \renewcommand{\top}{\text{\sf Top}} % old \top is \mathchar"23E
- \DeclareMathOperator{\topoi}{\sf Topoi}
- \DeclareMathOperator{\tor}{Tor}
- \DeclareMathOperator{\tors}{\sf Tors}
- \DeclareMathOperator{\tot}{Tot}
- \DeclareMathOperator{\Tot}{\ensuremath{\mathpzc{Tot}}}
- \DeclareMathOperator{\tr}{tr}
- \newcommand{\TT}{\mathbb{T}}
- \newcommand{\ttilde}[1]{\widetilde{#1}}
- \newcommand{\udot}{\ensuremath{{\lower .183333em \hbox{\LARGE \kern -.05em$\cdot$}}}}
- \newcommand{\uudot}{{\ensuremath{\!\mbox{\large $\cdot$}\!}}}
- \DeclareMathOperator{\uhom}{\underline{Hom}}
- \newcommand{\U}{\mathcal{U}}
- \newcommand{\uC}{\underline{\C}}
- \newcommand{\unst}{\mathrm{unst}}
- \DeclareMathOperator{\umor}{\underline{Mor}}
- \newcommand{\V}{\mathcal{V}}
- \newcommand\vect{\text{\sf Vect}}
- \newcommand\VV{\mathbb{V}}
- \newcommand{\w}{\omega}
- \newcommand{\W}{\mathcal{W}}
- \newcommand{\X}{\mathcal{X}}
- \newcommand{\Y}{\mathcal{Y}}
- \newcommand{\Z}{\mathcal{Z}}
- \newcommand{\ZZ}{\mathbb{Z}}
+ 
+ %Matricies
+ \newcommand{\brmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+ 
+%%%%%%%%%%%% Begin Anton's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ % Small and Large Matricies
+ \newcommand{\matx}[1]{\bigl(\begin{smallmatrix} #1 \end{smallmatrix}\bigr)}
+ \newcommand{\Matx}[1]{\begin{pmatrix}#1\end{pmatrix}}
+ 
+%\newcommand{\pb}{\rule{.4pt}{5.4pt}\rule[5pt]{5pt}{.4pt}\llap{$\cdot$\hspace{1pt}}}
+%\newcommand{\po}{\rule{5pt}{.4pt}\rule{.4pt}{5.4pt}\llap{$\cdot$\hspace{1pt}}}
+%\newcommand{\qbinom}[2]{\left[\frac{#1}{#2}\right]_q}
+
+ \newcommand{\bbar}[1]{\setbox0=\hbox{$#1$}\dimen0=.2\ht0 \kern\dimen0 \overline{\kern-\dimen0 #1}}
+ \renewcommand{\H}{\mathcal{H}} % old \H{x} is an x with a weird umlaut in text mode
+ \newcommand{\hhat}[1]{\widehat{#1}}
+ \renewcommand{\labelitemi}{--}  % changes the default bullet in itemize
+ \newcommand{\inn}[1]{\accentset{\circ}{#1}}
+ \newcommand{\lotimes}{\overset{L}{\otimes}}
+ 
 %%%%%%%%%%%% End Anton's Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  \openout0=lastupdated.html
