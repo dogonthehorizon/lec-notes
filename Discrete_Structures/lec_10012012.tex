@@ -1,0 +1,68 @@
+\sektion{3}{Class Lecture 10/1}
+\subsektion{Induction}
+\textbf{Setting:} we have some statement $P(x)$ and and some fixed $a \in \NN$, we want to show that $\forall n \in \NN ( (n \ge a) \to P(n) )$.
+\begin{example}Method:
+\begin{enumerate}
+\item Base Case: Prove $P(a)$
+\item Induction Step: Let $k \ge a$, and we assume $P(k)$. From this, we try to prove $P(k+1)$.
+\end{enumerate}
+If we can do both 1 and 2, we can conclude $\forall n \in \NN ( (n \ge a) \to P(n) )$
+\end{example}
+\begin{proof}[Corollary 4.2.6] Let $n \in \NN$. $2^n= \displaystyle\sum^n_{j=0} \Matx{n \\ j}$. This is equivalent to:
+\[ 2^n = \Matx{n \\ 0}+\Matx{n \\ 1}+\cdots+\Matx{n \\ n} \]
+\end{proof}
+\begin{proof}
+By induction.
+\begin{enumerate}
+\item Base Case: $n=0$. $2^0 = 1$, $\therefore\ \Matx{0 \\ 0} = 1$ \checkmark
+\item Induction Step: Assume $k \in \NN$. $2^k = \Matx{k \\ 0}+\Matx{k \\ 1}+\cdots+\Matx{k \\ k}$
+	\begin{enumerate}
+		\item To Show: $2^{k+1} = \Matx{k+1 \\ 0}+\cdots+\Matx{k+1\\k+1}$
+		\item \textbf{Notice:} $2^{k+1} = 2^k2 = 2\left( \Matx{k\\0}+\Matx{k\\1}+\cdots+\Matx{k\\k}\right)$
+		\item See page 42 in the textbook (Pascal's Identity).
+		\begin{enumerate}
+			\item $\Matx{k+1\\0} \equiv$
+			\item $\Matx{k+1\\1} \equiv  \Matx{k\\0}+\Matx{k\\1}$
+			\item $\Matx{k+1\\2} \equiv  \Matx{k\\0}+\Matx{k\\1}+\Matx{k\\2}$
+			\item $\Matx{k+1\\k}\equiv   \Matx{k\\k-1}+\Matx{k\\k}$
+			\item $\Matx{k+1\\k+1}\equiv \Matx{k\\k}$
+			\item Notice that every term has shown up twice!
+			\item $\therefore$ $2 \left( \Matx{k\\0}+\Matx{k\\1}+\cdots+\Matx{k\\k} \right) = 2^{k+1}$ \textbf{QED}
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+\end{proof}
+\textbf{If a proof or theorem has a name, we should know how to use it.}
+\begin{proof}
+For $n \ge 2$, $3n > 3+n$. By induction.
+\begin{enumerate}
+	\item Base Case: $n=2$ $3*2 = 6 > 5 = 3 + 2$ \checkmark
+	\item Induction Step: Let $n \ge 2$. Assume $3n > 3 +n$.
+		\begin{enumerate}
+			\item To Show: $3(n+1)>3+(n+1)$
+			\item $3(n+1)=3n+3$.
+			\item By induction hypothesis $3n > 3+n$. $\therefore\ 3n+3>(3+n)+3$.
+			\item $(3+n)+3=3+(n+3)>3+(n+1)$
+			\item $\therefore\ 3(n+1) > 3+(n+1)$
+			\item \textbf{QED} for Induction Step.
+		\end{enumerate}
+\end{enumerate}
+\end{proof}
+\subsektion{Strong Induction}
+\textbf{Setup}: We want to show $\forall n \in \NN ( (n \ge a) \to P(n))$.
+\begin{definition}Method:
+\begin{enumerate}
+\item Base Case: Show $P(a)$
+\item Strong Induction Step: Let $k\ge a$. Assume $P(a) \wedge P(a+1)\wedge \cdots \wedge P(k)$.
+\end{enumerate}
+From this assumption we prove $P(k+1)$.
+\end{definition}
+\begin{proof}[Theorem 2.2.4]
+\[\forall n \in \NN ( n \ge 1 \to \exists p \in \NN ( p \text{ is prime} \wedge p|n)) \]
+\begin{enumerate}
+\item Base Case: $n = 2$. $2$ is prime and $2|2$ \checkmark
+\item Strong Induction Step: Let $k \in \NN, k \ge 2$. Assume that $2,\cdots,k$ all have prime divisors.
+\end{enumerate}
+\end{proof}
+
+
