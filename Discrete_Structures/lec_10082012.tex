@@ -1,0 +1,50 @@
+\sektion{6}{Class Lecture 10/5}
+\subsektion{Quiz Debrief}
+How to show $A \subseteq B$. Translation: $ \forall x \in A (x \in B)$.
+\begin{proof}
+Let $x \in A\ \cdots$. $\therefore$ $x \in B$. QED
+\end{proof}
+
+\begin{proof}[$A\subseteq B$ By Contrapositive]
+Let $x \notin B$. $\cdots$. $\therefore\ x\notin A$.
+\end{proof}
+
+\begin{proof}[$A\subseteq B$ By Contradiction]
+Assume $x\in A \wedge x \notin B$. $\cdots$. $\therefore\ \forall x\in A(x\in B)$
+\end{proof}
+
+\begin{proof}[Disprove $A \subseteq B$]
+Come up with a concrete element $a\in A$ such that $a\notin B$.
+\end{proof}
+
+\begin{example}[Disprove: $\QQ \in \NN$]
+Consider $q = \frac{1}{3}$. $q\in \QQ$. $q \notin \NN$. $\therefore\ \QQ \notin \NN$.
+\end{example}
+
+\subsektion{Homework Debrief}
+
+\begin{enumerate}
+\item $\underbrace{(A \subseteq B \wedge B \subseteq C)}_{\text{Assume}} \to A \subseteq C$. Also assume $x \in A$.
+
+\item $A \subseteq B \iff A \cup B = B$
+\begin{itemize}
+\item ($\Rightarrow$ Assume $A \subseteq B$. To Show: $A\cup B \subseteq B \wedge B\subseteq A \cup B$).
+\item ($\Leftarrow$ Assume $A\cup B = B$. To show: $A \subseteq B$.
+\end{itemize}
+\end{enumerate}
+
+\subsektion{More Greatest Common Divisor}
+\begin{theorem}[Textbook 2.4.3]
+Let $n,m \ge 1; n,m \NN$. Then $d=gcd(n,m) \iff d$ is the smallest positive number that can be written as a l.c. of $n,m$. That is, d is smallest possible number such that $d=nx+my$ for some $x,y\in \ZZ$.
+\end{theorem}
+\begin{theorem}[Corollary 2.4.5]
+$n,m \ge 1; n,m \in \ZZ$. Then $gcd(n,m)=1 \iff 1 = nx+my$ for some $x,y\in \ZZ$.
+\end{theorem}
+\begin{theorem}[Corollary 2.4.6]
+Let $n,m,q \in \NN; n,m,q \ge 1$. If $q|(nm)$ and $gcd(q,n)=1$, then $q|m$.
+\end{theorem}
+\begin{proof}
+Assume $gcd(q,n)=1$ and $q|nm$. (To Show: $q|m$). By 2.4.5 $1=qx+ny$. $\therefore$ $m=mqx+nmy$.
+\end{proof}
+
+

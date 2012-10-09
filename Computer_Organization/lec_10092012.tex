@@ -1,0 +1,39 @@
+
+\sektion{1}{Class Lecture - 10/09}
+\subsektion{Test Debrief}
+\subsubsektion{Chapter 1}
+\begin{itemize}
+\item (4pt) Computer Model
+\item (4pt) Computer Generations
+\item (3pt) Computer Categories
+\item (5pt) Lifelong Learning
+\item (4pt) System Performance: peak CPU, Benchmark
+\end{itemize}
+
+\subsubsektion{Chapter 2}
+\begin{itemize}
+\item CPU to Memory Interface
+\item Address Bus
+\item Data Bus
+\item Control Bus: read/write
+\item Memory Organizaiton
+\item CPU Endian
+\item CPU architectures: Von Neuman, Harard, Modified Harvard
+\end{itemize}
+
+\subsubsektion{J-Type}
+\begin{itemize}
+\item \textbf{j} jump ("one way ticket")
+    \begin{itemize}
+        \item 6 byte opcode followed by 26 byte absolute word address.
+        \item syntax j 10000 \#goto memory address at 10000
+    \end{itemize}
+\item \textbf{jal} jump and link ("two way ticket")
+    \begin{itemize}
+        \item jal 2400 \#save return address in \$ra then go to memory address 2400
+    \end{itemize}
+\item \textbf{jr} jump register ("return ticket")
+    \begin{itemize}
+        \item jr \$ra \# return to the address stored in \$ra
+    \end{itemize}
+\end{itemize}

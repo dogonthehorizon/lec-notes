@@ -1,0 +1,63 @@
+\sektion{4}{Class Lecture 10/3}
+\subsektion{Strong Induction Cont.}
+\begin{proof}[Every $n \ge 2$ has a prime divisor.]
+By Strong Induction.
+\begin{itemize}
+\item Base Case: $n=2$. 2 is prime and $2|2$. \ck
+\item Induction Step: Let $k \ge 2$. Assume $2,\cdots,k$ all have prime divisors.
+    \begin{enumerate}
+        \item To Show: $k+1$ has a prime divisor.
+        \item Case 1: $k+1$ is prime. $(k+1)|(k+1)$ \ck
+        \item Case 2: $k+1$ is composite. 
+        \begin{itemize}
+            \item $\therefore$ there is some $m\in \NN$ such that $1<m<k+1$ and $m|(k+1)$
+            \item $2 \le m \le k$
+            \item By Induction Hypothesis, $m$ has a prime divisor $p$.
+            \item $p|m \wedge m|(k+1)$
+            \item By the transitivty of divisibility $p|(k+1) \wedge p$ is prime. \ck
+        \end{itemize}
+    \end{enumerate}
+\end{itemize}
+\end{proof}
+
+\subsektion{Greatest Common Divisor}
+\begin{example}[Find the greatest common divisor of 20 and 36]
+\[ \begin{matrix}20 & = & 2 & \times & 2 & \times & 5 \\
+         36 & = & 2 & \times & 3 & \times & 3 & \times & 3\end{matrix}\]
+\[\underbrace{gcd(20,36)=4}_{\text{Terrible Algorithm. Fact.}}\]
+\end{example}
+\begin{definition}
+Let $n,m\in \ZZ; n,m \ge 1$. The gcd($n,m$)=$d \iff (d|m \wedge d|n) \wedge \left( \forall c \in \NN \left( (c|m \wedge c|n) \to c \le d \right) \right)$
+
+\begin{itemize}
+\item $n=mq+r$, $0\le r \le m$
+\item What if $a|n$ and $a|m$? $a|(n-mq)$, so $a|r$.
+\item What if $a|m$ and $a|r_1$? $a|n$
+\item $n=mq_1+r_1$
+\item $m=r_1q_2+r_2$
+\item $r_1=r_2q_3+r_3$
+\item $m > r_1 > r_2 > \cdots = 0$
+\item gcd($n,m$) = gcd($m,r_1$) = gcd($r_1,r_2$) = $cdots$ = last non-zero remainder.
+\end{itemize}
+\end{definition}
+\begin{example}[ Find $gcd(12600,6825)$ ]
+\textbf{Euclidian Algorithm}
+\[ \begin{matrix} 12600 & = & 6825(1) & + & 5775 \\
+                  6825  & = & 5775(1) & + & 1050 \\
+                  5775  & = & 1050(5) & + & 525  \\
+                  1050  & = & 525(2)  & + & 0\end{matrix} \]
+\[ gcd(12600,6825)=525 \]
+\end{example}
+
+\begin{definition}
+Let $n\in\ZZ$. An (integer) linear combination of $n,m$ is a number/expression of the form $nx+my$, where $x,y\in\ZZ$.
+\end{definition}
+
+\begin{theorem}
+Let $n,m\in\ZZ; n,m\ge 1$. Then gcd($n,m$) is the smallest positive number that can be written as a linear combination of $n,m$.
+\end{theorem}
+
+
+
+
+

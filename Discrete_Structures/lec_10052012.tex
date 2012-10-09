@@ -1,0 +1,32 @@
+\sektion{5}{Class Lecture 10/5}
+\begin{theorem}[Textbook 2.4.3] Let $n,m \in \ZZ; n,m \ge 1$.
+If $d=gcd(n,m)$ then $d$ is the least positive number that can be written as an integer linear combination of $n,m$. That is, $d$ is the \emph{least} positive number such that $d=nx+my$ for some $x,y \in \ZZ$.
+\end{theorem}
+\begin{proof}Let $n,m\in\NN;n,m\ge1$. $A = \left\{ k\in\NN | (k > 0) \wedge (k = nx+my \text{ for some } x,y \in \ZZ) \right\}$
+    \begin{itemize}
+    \item $n\in A$. $x=1$, $y=0$.
+    \item $m\in A$. $x=0$, $y=1$.
+    \item $n-m \in A$ if $n\ge m$.
+    \item $2n+5m\in A$.
+    \end{itemize}
+Since $n\in A$, $A \ne \emptyset$. By the Well Ordering Principle $A$ has a least element. Call this least element $t$. (To Show: $t=d=gcd(n,m)$. $t|n$. $t|m$. if $p\in\ZZ$, such that $p|n$ and $p|m$, then $t\ge p$.).
+
+By the division algorithm: $n=tp+r$, $0 \le r < t$. Since $t\in A$, $t = nx+my$ for some $x,y\in\ZZ$. $n =(nx+my)p + r$. $n-nxp-myp=r$. $n\underbrace{(1-xp)}_{x'}+m\underbrace{(-yp)}_{y'} = r$. $r=nx'+my'$ and $0\le r < t$. Either $r=0$ in which case $r\notin A$ or $r>0$, so $r\in A$ and $r<t$, and $t$ is the least element in $A$. The latter is impossible $\therefore\ r=0$, so $n=tp$, so $t|n$ \checkmark.
+
+By the division algorithm: $m=tp+r$, $0 \le r < t$. Since $t\in A$, $t = nx+my$ for some $x,y\in\ZZ$. $m =(nx+my)p + r$. $m-mxp-nyp=r$. $n\underbrace{(1-xp)}_{x'}+m\underbrace{(-yp)}_{y'} = r$. $r=nx'+my'$ and $0\le r < t$. Either $r=0$ in which case $r\notin A$ or $r>0$, so $r\in A$ and $r<t$, and $t$ is the least element in $A$. The latter is impossible $\therefore\ r=0$, so $m=tp$, so $t|m$ \checkmark.
+
+Let $p|n$ and $p|m$ and $p\in\ZZ$. $t=nx+my$ for some $x,y\in\ZZ$. Since $p|n$ and $p|m$, $n=ps$ and $m=pq$. $t=psx+pqy=p\underbrace{(sx+qy)}_w$. $t=pw$ for some $w\in\ZZ$. $\therefore\ p|t$, so $p \le t$ \checkmark. \textbf{QED}
+\end{proof}
+\begin{definition}[2.2.4]Let $n.m\ge 1$ for $n,m\in\ZZ$. $n,m$ are relatively prime if the $gcd(n,m)=1$.
+\end{definition}
+\begin{definition}[2.2.5]Let $n,m\in\ZZ; n,m\ge 1$. Then $gcd(n,m)=1 \iff \exists x,y\in\ZZ$ such that $nx+my=1$.
+\end{definition}
+\begin{proof}
+Let $n.m\ge 1$ for $n,m\in\ZZ$.
+
+Assume $gcd(n,m)=1$. By Theorem 2.4.3 there exists an $x,y\in\ZZ$ such that $nx+my=1$ \textbf{QED}.
+
+Assume $\exists x,y\in\ZZ$ such that $nx+my=1$. There is no positive number $<$ 1. $\therefore$ 1 is the least element in $\left\{ nx+my| x,y\in\ZZ, nx+my>0 \right\}$. $\therefore\ 1=gcd(n,m)$
+\end{proof}
+
+
