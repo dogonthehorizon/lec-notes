@@ -88,7 +88,7 @@ class bag {
 }
 
 //Using a template class
-tmeplate <class Item>
+template <class Item>
 class bag {
     public:
         typedef Item value_type;
@@ -112,9 +112,23 @@ bag::size_type bag::count(const value_type& target) const...
 The functions return type is bag::size\_type, but it's returned before the compiler defines this as a member function. In order for the above statement to be correct we must add the $typename$ keyword.
 \begin{lstlisting}
 tmeplate <class Item>
-typename bag<Item>::size_typ bag<Item>::count (const Item& target) const...
+typename bag<Item>::size_typ bag<Item>::count 
+                        (const Item& target) const...
 \end{lstlisting}
-\emph{Use the Name Item and the Typename Keyword:  It's clear in our examples that bag<Item>::value_type is a data type, however the compiler cannot recognize this. To help the compiler (and our sanity) use Item instead of value_type.}
+And finally, we must make the implementation of our template class visible. In the header file we generally place the documentation and prototypes for functions, however we must now also include the actual implementations of all the functions. The reason for this inane requirement is purely a function of assisting the compiler. The recommended manner for avoiding this situation is to move the implementations to a sparate file, but place the include directive at the bottom of the header file (See Figure 6.2 pg.305 for an example).
 
+\subsubsektion{More About the Template Implementation File}
+As you can see in Figure 6.2, the final include is of the syntax $bag4.template$ as opposed to $bag4.cxx$, this is to remind us that we are using a template file as opposed to a standard source file.
+
+\subsubsektion{Parameter Matching for Member Functions of Template Classes}
+While we must babysit the compiler for most function definitions, no such help is needed for member functions of a template class. Unlike ordinary template functions, the compiler is able to match a template data type with a regular data type.
+
+\subsubsektion{Using the Template Class}
+Using template classes are fairly straightforward:
+\begin{lstlisting}
+bag<char> letters;
+bag<double scores;
+\end{lstlisting}
+Once this code appears, we consider the template parameter to be \textbf{instantiated}. In the letters class, $char$ is instantiated, while $double$ is instantiated in the scores class. Figure 6.3 (pg.310) is an example of using different "bags" to create a "story" about "Life". A description of this program can be found on pg. 312 of the text.
 
 

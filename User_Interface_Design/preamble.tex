@@ -36,12 +36,16 @@
              linkcolor=black,
              pagebackref,
              bookmarksnumbered=true]{hyperref}
+ \usepackage{hyperref}
+ \usepackage{hevea}
+ \loadcssfile{http://notes.binaryruminations.com/css/notes.css}
 
 %%%%%%% Stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%
  \newcount\n
  \newcommand{\sektion}[2]{\stepcounter{section} \renewcommand{\thesection}{#1}\n=\count0 \newpage
 \ifnum\count0=\n \ifnum\count0>1\ \newpage \fi\fi\section{#2} \gdef\sectionname{#1\quad #2, v.~\rcsInfoMonth-\rcsInfoDay}}
  \newcommand{\subsektion}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
+ \newcommand{\subsubsektion}[1]{\subsubsection*{#1}}
  %% This is the empty section title, before any section title is set %%
  \newcommand\sectionname{}                                           %%
 %%%%%%% End stuff for keeping track of sections %%%%%%%%%%%%%%%%%%%%%%%
@@ -104,8 +108,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%% Begin Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
- \newcommand{\ck}{\checkmark}
  
  %Number Sets
  \newcommand{\CC}{\mathbb{C}}
