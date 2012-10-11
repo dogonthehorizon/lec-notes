@@ -1,0 +1,61 @@
+\sektion{6}{Class Lecture 10/10}
+\subsubsektion{Homework 2.2}
+\begin{enumerate}
+\item Show that if $x,y\in\ZZ; x,y$ both odd, there is \textbf{no} $z\in\ZZ$ where $x^2+y^2=z^2$.
+\end{enumerate}
+\begin{proof}
+By contradiction. Let $x,y,z\in\ZZ; x,y$ are odd; $x^2+y^2=z^2$. Since $x,y$ are odd, $x=2m+1$, $y=2n+1$ for $n,m\in\ZZ$. $x^2+y^2=z^2$ so $(2m+1)^2+(2n+1)^2=z^2$. 
+\begin{itemize}
+\item $4m^2+4m+1+4n^2+4n+1=z^2$. 
+\item $4\underbrace{(m^2+m+n^2+n)}_p+2=z^2$. $p\in\ZZ$ 
+\item $z^2=4p+2=2(2p+1)$. 
+\item $z=\sqrt{2}\sqrt{2p+1}$
+\item $2|z^2$
+\end{itemize}
+$\therefore\ z$ is even. $z=\sqrt{2}\sqrt{2p+1}$ and $z$ is even $\therefore\ z=2q$ such that $q\in\ZZ$.
+\begin{itemize}
+\item $(2q)^2=4p+2$
+\item $4q^2-4p=2$
+\item $4(q^2-p)=2$
+\item $\therefore\ q^2-p=\frac{1}{2}\notin\ZZ$
+\end{itemize}
+This is a contradiction, $\therefore$ there is \textbf{no} $z\in\ZZ$ where $x^2+y^2=z^2$
+\end{proof}
+
+\subsektion{GCD Continued}
+\begin{theorem}[Textbook 2.4.6]
+Let $n,m,q\in\ZZ; q|(nm)$ and $gcd(n,q)=1$. Then $q|m$.
+\end{theorem}
+\begin{proof}
+Let $n,m,q\in\ZZ$. Assume $q|(nm)$ and $gcd(q,n)=1$. (To Show: $q|m$) Since $gcd(q,n)=1$, $1=qx+ny$. $\therefore$ $m=qmx+nmy$ and we know that $q|(nm)$. $\therefore$ $nm=qp$ such that $p\in\ZZ$. Hence, $m=qmx+qpy=q\underbrace{(mx+py)}_{\text{for }x\in\ZZ}$. So $m=qs$ $\therefore$ $q|m$. \textbf{QED}.
+\end{proof}
+\begin{theorem}[Corollary 2.5.2]
+If $p,x,y\in\ZZ$ and $p$ is prime, and $p|(xy)$, then $p|x$ or $p|y$. (Example: $4|12$, so $4|6*2$).
+\end{theorem}
+\begin{proof}
+Let $p,x,y\in\ZZ$. Assume $p$ is prime, and $p|(xy)$. (To Show: $p|x \vee p|y$).By Contradiction $\therefore$ $p$ does not divide $x$ or $y$. $p$ is prime and $p|(xy)$ and $p$ does not divide $x$. The only divisor $p$ are 1 and $p$, and $p$ does not divide $x$. $\therefore$ $gcd(p,x)=1$. By the previous theorem $p|y$. By assumption $p$ does not divide $y$. $\therefore$ there is a contradiction, and for  $p|(xy)$, then $p|x$ or $p|y$. \textbf{QED}.
+\end{proof}
+\begin{proof}
+\begin{enumerate}Same as above.
+\item Case: $p|x$ \checkmark
+\item Case: $p$ does not divide $x$. $\therefore$ $gcd(p,x)=1$ because $p$ is prime. We assume that $p|(xy)$. $\therefore$ by the previous theorem, $p|y$. \checkmark
+\item \textbf{QED}.
+\end{enumerate}
+\end{proof}
+\begin{theorem}
+Let $n,m,k\in\ZZ;n,m,q \ge 1$. If $n|k$ and $m|k$, and $gcd(n,m)=1$, then $(nm)|k$. (Example: $3|24$ and $4|24$ and $(3*4)|24$.)
+\end{theorem}
+
+\begin{proof}
+Let $n,m,k\in\ZZ$. Assume $n,m,k \ge 1$, $n|k$, $m|k$, and $gcd(n,m)=1$. 
+\begin{itemize}
+\item $k=np$ and $k=mq$, where $p,q\in\ZZ$.
+\item $1=nx+my$
+\item $k=knx+kmy$
+\item $k=nm(qx+py)$
+\item $\therefore$ $(nm)|k$.
+\item \textbf{QED}.
+\end{itemize}
+\end{proof}
+
+

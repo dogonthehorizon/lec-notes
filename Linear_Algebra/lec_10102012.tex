@@ -1,0 +1,70 @@
+\sektion{4.2}{Class Lecture 10/10}
+Is the following set of vectors a subspace of $\RR^n$?
+\[ \left\{ (2a,3b-a,5,c+3a-1)\ |\ a,b,c \text{ are in } \RR \right\}\]
+No, $(0,0,0,0)$ is not in this set.
+\begin{example}$\PP_5[x]$; are any of these subpaces?
+\begin{enumerate}
+\item All polynomials of the form $ax^4$, $a \in \RR$. \textbf{Yes} $\vec{0}$ \checkmark $\vec{v}+\vec{w}$ \checkmark, $c\vec{v}$ \checkmark.
+
+\item All polynomials of hte form $bx^3-cx^2$, where $b,c \in \RR$. \textbf{Yes}, $b=c=0, \therefore \vec{0}$ \checkmark; $\vec{v}+\vec{w}$ \checkmark; $c\vec{v}$ \checkmark.
+
+\item All polynomials of the form $x^4 + \ell x$, where $\ell \in \RR$. \textbf{No}, there is no closed vector, there is no sum of vectors, and there is no scalar multiple of vector v.
+
+\item All polynomials in $\PP_5[x]$ with integer coefficients. \textbf{No}, if $c$ is real (non-rational) $c(f)$ will not have an integer coefficient.
+\end{enumerate}
+\end{example}
+The \emph{kernel} of a linear transformation $T:V\to W$ is the subspace of vectors $\vec{v}$ in $V$ for what $T(\vec{v}) = \vec{0}$. The kernel can  be considered the same thing as the null space. However, the null space refers to matrix language, while a kernel refers to functional language.
+
+eval$_a$:$\PP_n[x]\to\RR$
+eval$_a(f)$:$f(a)$
+
+For our fixed value $a$, what is the kernel of the evaluation of $a$ ($Ker(eval_a)$)? It's all polynomials with a root (zero) at $a$. That is, \{$f \in \PP_n[x]\ |\ f=(x-a)g$, where $g \in \PP_n[x]$\}.
+\begin{example}
+Consider $\PP_3[x]$
+\begin{enumerate}
+\item Is the set of all polynomials with roots at $\pm$1 a subspace? $(x-1)+(x+1)=2x \therefore$ \textbf{No.}
+\end{enumerate}
+\end{example}
+
+\subsektion{Change of Basis and Relative Coordinates}
+If we are given a basis $\mathcal{B} = \left\{ \vec{b_1}, \vec{b_2}, \cdots, \vec{b_n} \right\}$ and $\mathcal{C} = \left\{ \vec{c_1}, \vec{c_2}, \cdots, \vec{c_n} \right\}$ for a vector subspace $V$.
+
+\[ [\vec{v}]_\mathcal{B} = \sum_{i=1}^n \mathcal{B}_i\vec{b}_i\]
+
+\[ [\vec{v}]_\mathcal{C} = \sum_{i=1}^n \mathcal{C}_i\vec{c}_i\]
+
+How do we convert between bases? We need to take all the $b$ vectors and re-write them according to $c$.
+
+\[ _\mathcal{C} P_\mathcal{B} = \left[ [\vec{b_1}]_\mathcal{C} | [\vec{b_2}]_\mathcal{C} | \cdots | [\vec{b_n}]_\mathcal{C} \right] \]
+
+If there is some standard of fixed basis $\mathcal{U}$
+
+\[ \left[ [\vec{c_1}]_\mathcal{U} | [\vec{c_2}]_\mathcal{U} | \cdots | [\vec{c_n}]_\mathcal{U} | \right] \to [\ I\ |\ _\mathcal{C} P_\mathcal{B}\ \]
+\begin{example}
+Find $_\mathcal{C} P_\mathcal{B}$ on $\PP_2[x]$ for
+\[ \mathcal{B} = \{ 2, x-1, x^2+2x-2 \} \]
+\[ \mathcal{C} = \{ x, 2x+1, x^2-x \} \]
+
+Method 1:
+\[ 2 = -4(x)+2(2x+1) \]
+\[ x -1 = 3(x) + (-1)(2x+1) \]
+\[ x^2+2x =6(x) -2(2x+1) + 1(x^2-x) \]
+\[ \brmat{-4 & 3 & 6\\ 2 & -1 & -2\\ 0 & 0 & 1} = _\mathcal{C} P_\mathcal{B}\]
+
+Method 2:
+\[ \brmat{0 & 1 & 0 & 2 & -1 & -2\\ 1 & 2 & -1 & 0 & 1 & 2\\ 0 & 0 & 1 & 0 & 0 & 1} \]
+\[ \to \brmat{1 & 0 & 0 & -4 & 3 & 7 \\ 0 & 1 & 0 & 2 & -1 & 2\\ 0 & 0 & 1 & 0 & 0 & 1} \]
+\[ \mathcal{U}=\{ 1,x,x^2 \}\]
+\end{example}
+
+Given a linear transformation $T:V\to V$ where the dimension of $V=n$, we might ask a slightly odd question: Are there bases $\mathcal{B}$ and $\mathcal{C}$ for $V$ so that \emph{any} given matrix $A$ is just $T[\vec{v}]_\mathcal{B}$ = $A[\vec{v}]_\mathcal{C}$. Probably \emph{not}. $Ker(T)$ has got to be $Null(A)$. Those are independent of bases, they are part of subpsaces. Similarly $Range(T)$ has to be $Col.Sp.(A)$.
+
+\begin{example}
+Let $T:V\to V$, where $T$ is $n$-dimensional. What $n\times n$ matricies represent $T$ as we consider all possible bases for $V$? That is, we should consider $A$ and $B$ to be "equivalent" if there are bases $\mathcal{A}$ and $\mathcal{B}$ such that $A[\vec{v}]_\mathcal{A} = T(\vec{v}) = B[\vec{v}_]\mathcal{B}$
+
+Really what we want to do is
+\[ B[\vec{v}]_\mathcal{B} = _\mathcal{B}P_\mathcal{A} A_\mathcal{A}P_\mathcal{B}[\vec{v}]_\mathcal{B}\]
+\[ B = P A P^{-1}\]
+\end{example}
+
+
