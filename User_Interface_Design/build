@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for z in chap*.tex;do
+	y=${z%.tex}; 
+	pdflatex -output-directory="../Compiled_Sources/User_Interface_Design/" -jobname=$y "\includeonly{$y}\input{user_interface_design}";
+done
+
+
+rm ../Compiled_Sources/User_Interface_Design/{*.aux,*.log,*.out,*.html}
+exit 0
+

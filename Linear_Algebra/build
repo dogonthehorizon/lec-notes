@@ -1,0 +1,15 @@
+#!/bin/sh
+for i in lec*.tex; do 
+	j=${i%.tex}; 
+	pdflatex -output-directory="../Compiled_Sources/Linear_Algebra/" -jobname=$j "\includeonly{$j}\input{linear_algebra}";
+done
+
+for z in chap*.tex;do
+	y=${z%.tex}; 
+	pdflatex -output-directory="../Compiled_Sources/Linear_Algebra/" -jobname=$y "\includeonly{$y}\input{linear_algebra}";
+done
+
+
+rm ../Compiled_Sources/Linear_Algebra/{*.aux,*.log,*.out,*.html}
+exit 0
+
