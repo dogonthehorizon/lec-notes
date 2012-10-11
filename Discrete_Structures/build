@@ -1,0 +1,9 @@
+#!/bin/sh
+for i in lec*.tex; do 
+	j=${i%.tex}; 
+	pdflatex -output-directory="../Compiled_Sources/Discrete_Structures/" -jobname=$j "\includeonly{$j}\input{discrete_structures}";
+done
+
+rm ../Compiled_Sources/Discrete_Structures/{*.aux,*.log,*.out,*.html}
+exit 0
+

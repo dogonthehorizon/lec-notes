@@ -1,0 +1,40 @@
+#!/usr/bin/perl -w
+# This script will be run approximately once daily to update the generated PDF documents that will be displayed on the web page. As such, there should be no need to accept command line arguments.
+use strict;
+
+my @dirs = <*>;
+my @files;
+my @compiled_dirs;
+
+#Get a list of files to process.
+foreach my $dir (@dirs) {
+	if ((-d $dir) && (!($dir eq 'Templates')) && (!($dir eq 'Compiled_Sources'))){
+		opendir(DIR,$dir) or die "Can't opendir $dir: $!\n";
+
+		while (defined(my $file = readdir(DIR))) {
+			next if ($file =~ m/^\./); # skip . and ..
+			next if (!($file =~ m/\.tex$/));
+			next if (!($file =~ m/^lec|^chapter/));
+
+			my $command = "/usr/bin/pdflatex";
+			my $header = lc($dir);
+			my $input = "-jobname=$file \\includeonly{$file}\\input{$header} ";
+
+			system( $command, $input );	
+
+			push (@compiled_dirs,$dir);
+			push (@files,$dir."/".$file);
+		}#while
+
+		closedir(DIR);
+	}#if directory
+}#foreach
+
+#if it's lec or chapter, compile it
+#send its output to Compiled_Sources
+#delete all that other shit .aux .log .toc etc
+#run a git add on all the .pdf files in Compiled Sources
+#run a git commit -m "Updated files $(date +%m%d%Y)
+#run a git push origin master
+	#`pdflatex -jobname=$j "\includeonly{$j}\input{discrete_structures}"`
+
