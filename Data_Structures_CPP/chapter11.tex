@@ -1,6 +1,218 @@
 \sektion{11}{Balanced Trees}
 \subsektion{Abstract}
 In this chapter we describe two programming projects that involve trees. The projects in question are improvements of the classes mentioned earlier in the text: the priority queue (pg. 433 Proj. 5) and the set class (similar to the bag class). We will also analyze the time performance of tree algorithms.
+\subsektion{Heaps}
+\subsubsektion{The Heap Storage Rules}
+A heap is a binary tree where a less than operator forms a \emph{strict weak ordering}\footnote{For a reminder of the rules for strict weak ordering, see pg. 139} that can be used to compare the nodes' entires.
+
+\subsubsektion{Heap Storage Rules}
+A heap is a binary tree where the entries of the nodes can be compared with the less-than operator of a stricct weak ordering. In addition, these two rules are followed:
+\begin{enumerate}
+\item The entry contained by a node is never less than the entries of hte node's children
+\item The tree is a complete binary tree, so that every level except hte deepest must contain as many nodes as possible; and at the deepest level, all the nodes are as far left as possible.
+\end{enumerate}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=3cm},
+  level 2/.style={sibling distance=1.5cm}]
+\node[circle,draw]{$91$}
+    child{
+        node[circle,draw]{77}
+            child {
+                node[circle,draw]{69}
+            }
+            child{
+                node[circle,draw]{3}
+            }
+    }
+    child {
+        node[circle,draw]{46}
+            child {
+                node[circle,draw]{11}
+            }
+            child[missing]{}
+        };
+\end{tikzpicture}
+\caption{An example of a heap}
+\end{figure}
+\emph{Should we know the size of the heap we wish to implement, the most effective implementation can use a fixed-size array.}
+\subsubsektion{The Priority Queue with Heaps}
+The difference between a queue and a priority queue is that the elements in a priority queue can be compared with the othe rentries using a $<$ operator. When entries leave a priority queue, the highest priority entries always leave first.
+
+In a heap implementation of the priority queue, each node of the heap contains one entry. The tree is maintained so that it follows the heap storage rules using the entries' priorities to compare nodes. In this way the entry contained by a node is never less than the entries of the node's children and the tree is a complete binary tree.
+
+We'll focus on two operations: adding a new entry and removing an entry with the highest priority.
+\subsubsektion{Adding an Entry to a Heap}
+For our purposes we will use a heap made of integers with no overloaded infix operators. Furthermore, suppose we have the following heap:
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[level distance=1.5cm,
+  level 1/.style={sibling distance=3cm},
+  level 2/.style={sibling distance=1.5cm}]
+\node[circle,draw]{$45$}
+    child{
+        node[circle,draw]{35}
+            child {
+                node[circle,draw]{27}
+                    child {
+                        node[circle,draw]{19}
+                    }
+                    child {
+                        node[circle,draw]{5}
+                    }
+            }
+            child{
+                node[circle,draw]{21}
+            }
+    }
+    child {
+        node[circle,draw]{23}
+            child {
+                node[circle,draw]{22}
+            }
+            child {
+                node[circle,draw]{4}
+            }
+        };
+\end{tikzpicture}
+\caption{A basic heap}
+\end{figure}
+Suppose we want to add the entry 42, to keep the completeness of the binary tree we will insert it to the left child node of 21.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[every node/.style={circle,draw},
+  level 1/.style={sibling distance=30mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=9mm}]
+\node[circle,draw]{$45$}
+    child{
+        node {35}
+            child {
+                node {27}
+                    child {
+                        node {19}
+                    }
+                    child {
+                        node {5}
+                    }
+            }
+            child{
+                node {21}
+                    child {
+                        node {\textbf{42}}
+                    }
+                    child[missing]{}
+            }
+    }
+    child {
+        node {23}
+            child {
+                node {22}
+            }
+            child {
+                node {4}
+            }
+        };
+\end{tikzpicture}
+\caption{Inserting 42}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[every node/.style={circle,draw},
+  level 1/.style={sibling distance=30mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=9mm}]
+\node[circle,draw]{$45$}
+    child{
+        node {35}
+            child {
+                node {27}
+                    child {
+                        node {19}
+                    }
+                    child {
+                        node {5}
+                    }
+            }
+            child{
+                node {\textbf{42}}
+                    child {
+                        node {21}
+                    }
+                    child[missing]{}
+            }
+    }
+    child {
+        node {23}
+            child {
+                node {22}
+            }
+            child {
+                node {4}
+            }
+        };
+\end{tikzpicture}
+\caption{Re-balancing the heap.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[every node/.style={circle,draw},
+  level 1/.style={sibling distance=30mm},
+  level 2/.style={sibling distance=20mm},
+  level 3/.style={sibling distance=9mm}]
+\node[circle,draw]{$45$}
+    child{
+        node {\textbf{42}}
+            child {
+                node {27}
+                    child {
+                        node {19}
+                    }
+                    child {
+                        node {5}
+                    }
+            }
+            child{
+                node {35}
+                    child {
+                        node {21}
+                    }
+                    child[missing]{}
+            }
+    }
+    child {
+        node {23}
+            child {
+                node {22}
+            }
+            child {
+                node {4}
+            }
+        };
+\end{tikzpicture}
+\caption{Re-balancing the heap.}
+\end{figure}
+\newpage
+\subsubsektion{Removing an Entry from a Heap}
+When an entry is removed from a priority queue, we must always remove the entry with the highest priority. Consider the following tree, the root of the tree will be removed since it has the highest priority.
+
+\subsubsektion{Pseudocode for Adding and Removing Entries}
+\begin{enumerate}
+\item Place a new entry in the heap in the first available location.
+\item \emph{while} (the new entry's parent is less than hte new entry): swap the new entry with its parent.
+\end{enumerate}
+
+\begin{enumerate}
+\item Copy the entry at the root of the heap to the variable that is used to return a value.
+\item Copy the last entry in the deepest level to the root, and then take this last node out of the tree.
+\item \emph{while} (the out of place entry is less than one of its children): swap the out of place entry wits highest child.
+\end{enumerate}
+
 \subsektion{B-Trees}
 Section 10.5 implements the bag class with binary search trees, however their efficiency can sometimes go awry. We will analyze the problem and show one way to fix it.
 \subsubsektion{The Problem of Unbalanced Trees}

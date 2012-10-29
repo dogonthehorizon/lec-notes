@@ -1,0 +1,36 @@
+\sektion{4.3}{Class Lecture 10/12}
+\subsektion{Homework Review}
+$H+K=\{\vec{u}+\vec{v}\ |\ \vec{u}\in H \wedge \vec{v}\in K\}$. 
+\begin{enumerate}
+\item $\vec{0}$ is in both $H$ and $K$ with $\vec{0}+\vec{0}=\vec{0}$.
+\item Let $h_1+k_1,h_2+k_2\in H+K$. Then $(\vec{h_1}+\vec{k_1})+(\vec{h_2}+\vec{k_2}) = (\vec{h_1}+\vec{h_2})+(\vec{k_1}+\vec{k_2})$.
+\item $V$ with a subspace $U$ and $W$ then $U$ is a subpsace of $W$ if $U$ is contained in $W$.
+\end{enumerate}
+\subsektion{Equivalences of Matricies}
+Two matiricies $A$ and $B$ are row equivalent (TFAEC)
+\begin{enumerate}
+\item The row space of $A$ is the same as the row space of $B$.
+\item RREF($A$) = RREF($B$)
+\item There is a finite set of elementary matricies $E_1\cdots E_\ell$ so that $E\ell \cdots E_1 A = B$.
+\item There is an invertible matriix $P$ so that $PA=B$
+\item The null space of $A$ is the same as the null space of $B$.
+\item $A$ and $B$ are column equivalent if the column space of $A$ equals the column space of $B$
+\end{enumerate}
+$A$ and $B$ are column equivalent if:
+\begin{enumerate}
+\item The column space of $A$ equals the column space of $B$
+\item There is a finite set of elementary matricies ... which satisfies $AF_1\cdots F_n=B$.
+\end{enumerate}
+When do $A$ and $B$ represent a fixed linear transformation $T:\RR^n\to\RR^n$ with respect to two different bases? \emph{If there is an invertible matrix $P$ such that $PAP^{-1}=B$}
+\begin{definition}
+\label{iso}
+A linear transformation $T:V\to W$ which is both \emph{one-to-one} and \emph{onto} is called an isomorphism of vector spaces. We write this as $V\cong W$.
+\end{definition}
+\textbf{Fact:} In order to specify a linear transformation $T:V\to W$, it is enough to have a bases $\mathcal{B} = \{ \vec{b_1} \cdots \vec{b_\ell} \}$ for $T$ and specify $T(\vec{b_1})\cdots T(\vec{b_\ell})$
+
+Suppose $A$ and $B$ are $m\times n$. When should $A$ and $B$ be equivalent as representing $T:\RR^n\to\RR^m$? $P_mAQ_n^{-1}=B$.
+\begin{definition}[Corollary \ref{iso}]
+Any $n$-dimensional vector space is isomorphic to $\RR^n$.
+\end{definition}
+
+

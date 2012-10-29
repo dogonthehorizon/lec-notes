@@ -1,0 +1,33 @@
+\sektion{12}{Searching}
+\subsektion{Abstract}
+In this chapter we will cover methods for searching. We will present and analyze some of the most common methods for searching for a particular item. These algorithms will also help develop additional techniques for analyzing the running times of algorithms.
+\subsektion{Open-Address Hashing}
+Hashing has a worst-case behavior that is linear for finding a target, but with care hashing can be dramatically fast in the average case. Hashing also makes it easy to add and delete elements from the collection that is being searched.
+\subsubsektion{Introduction to Hashing}
+Consider the following struct:
+\begin{lstlisting}[basicstyle=\ttfamily]
+
+struct tractor {
+    int key;        //the stock number
+    double cost;    //the price, in dollars
+    int horsepower; //size of the engine
+}
+\end{lstlisting}
+\textbf{Unless otherwise stated, structs are inherently public.} If the stock values range from 0 to 49, we could store the objects in a fixed sized array like so:
+\begin{lstlisting}[basicstyle=\ttfamily]
+tractor data[50];   //Array of 50 tractor records
+\end{lstlisting}
+However, if the stock indicies do not form a neat range then it seems wasteful to use a fixed sized array.
+
+A function, called the \emph{has function}, maps key values to array indexes. In this way the hash function computes a valid index for the given array and provides a more efficient means of storage and searching. A \emph{collision} occurs when two hash values evaluate to the same index in an array.
+
+The usual approach to avoid collisions is use an array size that is larger than needed. They extra array positions make collisions less likely. A good hashing function will then spread the indecies uniformly  through the index range.
+
+Here is one way to deal with collisions:
+\begin{example}[Basic storage hashing algorithm]
+\begin{enumerate}
+\item For a record with key value given by $key$, compute the index $hash(key)$.
+\item If 
+\end{enumerate}
+\end{example}
+

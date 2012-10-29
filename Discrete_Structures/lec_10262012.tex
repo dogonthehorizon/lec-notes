@@ -1,0 +1,70 @@
+\sektion{10}{Class Lecture 10/26}
+\subsektion{Fundamental Theorem of Arithmetic}
+\begin{theorem}
+Let $n\in\ZZ, n>1$. Then there is a \textbf{unique} sequence of primes $p_1<\cdots<p_{k_n}$ and a \textbf{unique} sequence of poewrs $s_1,\cdots,s_{k_n} \ge 1$ such that $n=p_1^{s_1}p_2^{s_2}\cdots p_{k_n}^{s_{k_n}}$.
+\end{theorem}
+\begin{proof}
+Existence (last time)
+
+Uniqueness:
+
+\begin{itemize}
+\item Assume $n=p_1^{s_1}p_2^{s_2}\cdots p_{k_n}^{s_{k_n}}  = q_1^{t_1}\cdots q_{m_n}^{t_{m_n}}$.
+\item Goal: $k_n=m_n$, each $p_i=q_i$, each $s_i=t_i$.
+\item Fiz some $p_i$ $(1 \le i \le k_n)$. Clearly $p_i|n$, so $p_i|\left( q_1^{t_1}\cdots q_{m_n}^{t_{m_n}} \right)$
+\item $\therefore$ $p_i|q_1$ or $p_i|q_i$ or $p_i|q_{m_n}$. Since $p_i$ is a prime and all $q$'s are primes, $p_i=q_j$ for some $j$.
+\item By a symmetric argument if we fix some $q_r$, $1\le r\le m_n$, then $q_r=p_u$, $1 \le u \le k_n$.
+\item $\therefore$ every $p$ appears among the $q$'s, and every $q$ appears among the $p$'s and they are both written in increasing order.
+\item $\therefore$ $k_n=m_n$ and $p_i=q_i$ for all $i$.
+\item $\therefore$ $n=p_1^{s_1}p_2^{s_2}\cdots p_{k_n}^{s_{k_n}} = p_1^{t_1}\cdots p_{m_n}^{t_{m_n}}$.
+\item Now, fix $p_i$, $1\le i \le k_n$.
+\item \emph{(To Show: $s_i=t_i$)}
+\item Assume, \emph{wolog}\footnote{without loss of generality} that $s_i \ge t_i$.
+\item Divide both sides of the equation by $p_i^{t_i}$. $p_i^{s_i}\cdots p_i^{s_i-t_i}p_{i+1}^{s_i+1}\cdots p_{k_n}^{s_{k_n}} = p_i^{t_i} \cdots (1)p_{i+1}^{t_{i+1}}$.
+\item $p_i\not |\ p_i^{t_i} \cdots p_{i-1}^{t_{i-1}}p_{i+1}^{t_{i+1}} \cdots p_{k_n}^{t_{k_n}}$
+\item $\therefore$ $p_i | p_1^{s_1}p_2^{s_2}\cdots p_{k_n}^{s_{k_n}}$
+\item Then $p_i^{s_i-t_i} = 1$
+\item $s_i-t_i = 0$, so $s_i = t_i$.
+\end{itemize}
+\end{proof}
+\newpage
+\subsektion{Binomial Theorem and Combinatorial Arguments}
+\begin{example}
+\[ (x+y)^2 = (x+y)(x+y) = x^2+yx+xy+y^2 \]
+\[ (x+y)^3 = (x+y)(x+y)(x+y) = (x^2+yx+xy+y^2) (x+y) = x^3+yx^2+xyx +y^2x + x^2y +yxy + xy^2 + y^3 \]
+Suppose we have $n$ leters, each of which is an $x$ or a $y$ and $k$ letters are $x$. $\Matx{n \\ k}$.
+\end{example}
+\begin{proof}[Binomial Theorem]
+\[ (x+y)^n = \Matx{n \\ n}x^ny^0 + \Matx{n \\ n-1}x^{n-1}y^1 + \cdots + \Matx{n \\ k}x^ky^{n-k} + \cdots + \Matx{n \\ 0}x^0y^n \] 
+\[ = \sum_{k=0}^n \Matx{n \\ n-k}x^{n-k}y^k \]
+\[ = \sum_{k=0}^n \Matx{n \\ k}x^ky^{n-k}\]
+\end{proof}
+\subsubsektion{Combinatorial Argument}
+\begin{proposition}
+Proof of a mathematical formula by showing that both sides of the equation represent different techniques for \textbf{counting} the same set of objects.
+\end{proposition}
+\begin{proof}
+For $n \ge 0$, $2^n = \Matx{n \\ 0}+\Matx{n \\ 1} + \cdots + \Matx{n \\ n} = \displaystyle\sum_{k=0}^n \Matx{n \\ k}$
+\begin{itemize}
+\item Let $n\ge0$. $A = \left\{x_1,\cdots,x_n\right\}; |A| = n$.
+\item $|\mathcal{P}(A)| = |\left\{ B|B\subseteq A\right\}| = 2^n $
+\item $|\mathcal{P}(A)| = $ \# of 0 element subsets of $A$ $+$ \# of 1 element subsets of $A + \cdots +$ \# of $n$ element subsets of $A$.
+    \begin{itemize}
+        \item $\Matx{n \\ 0} + \Matx{n \\ 1} + \cdots + \Matx{n \\ k} + \cdots + \Matx{n \\ n}$
+    \end{itemize}
+\end{itemize}
+\end{proof}
+\begin{example}[Pascal's Identity]
+For $n \ge 1$, $k \ge 1$, $\Matx{n+1 \\ k} = \Matx{n \\ k} + \Matx{n \\ k-1}$
+\end{example}
+\begin{proof}
+You own $n+1$ outfits; you're going on a trip for $k$ days; you want a different outfit for each day. How many ways are there to pack? $\Matx{n+1 \\ k}$
+
+You own $n+1$ outfits; you put a special outfit aside. 
+    \begin{itemize}
+        \item Method 1: Include the special outfit. $\to \Matx{n \\ k-1}$
+        \item Method 2: Don't include the special outfit. $\to \Matx{n \\ k}$
+    \end{itemize}
+The total ways to pack are $\Matx{n \\ k-1} + \Matx{n \\ k}$.
+\end{proof}
+

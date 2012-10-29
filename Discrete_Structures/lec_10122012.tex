@@ -1,0 +1,33 @@
+\sektion{7}{Class Lecture 10/12}
+\subsektion{Last Time}
+\begin{theorem}\label{lemmox}
+Let $n,m,k\in \NN;n,m,k\ge 1$ If $n|k$ and $m|k$ and $gcd(n,m)=1$ then $(nm)|k$
+\end{theorem}
+\begin{theorem}[Lemma \ref{lemmox}]
+Let $n,m,\in\NN;n,m\ge 1$ and let $d=gcd(n,m)$. Then $gcd(\frac{n}{d},\frac{m}{d})=1$.
+\end{theorem}
+\begin{proof}
+Since $d=gcd(n,m)$, $d=nx+my$ where $x,y\in\ZZ$. $1=\underbrace{\frac{n}{d}}_{\in\ZZ}x+\underbrace{\frac{m}{d}}_{\in\ZZ}y$. $\therefore$ $gcd(\frac{n}{d},\frac{m}{d})=1$.
+\end{proof}
+\begin{definition}[Least Common Multiple]
+Let $n,m\in\ZZ;n,m > 1$. $\ell=\ell cm(n,m)$ if $n|\ell$ and $m|\ell$ and if $s\le 1$, and $n|s$ and $m|s$, then $\ell \ge s$.
+\end{definition}
+\begin{theorem}
+Let $n,m\in\NN;n,m\ge 1$. $\frac{n*m}{gcd(n,m)} = \ell cm(n,m)$.
+\end{theorem}
+\begin{proof}
+Let $n,m\in\NN;n,m\ge 1$. Consider $d=gcd(n,m)$.
+\begin{itemize}
+\item Show that $\frac{n*m}{gcd(n,m)}\in\NN$. \checkmark
+\item Show that $n|\frac{n*m}{gcd(n,m)}$: $\frac{n*m}{d}=n\frac{m}{d}$. By $n|\frac{n*m}{d}$ \checkmark.
+\item Show that $m|\frac{n*m}{gcd(n,m)}$. \checkmark
+\end{itemize}
+Finally, show that $s\ge 1$, and $n|s$ and $m|s$, then $\ell \le s$. Assume $s\ge 1$, $n|s$ and $m|s$. (To Show: $\frac{n*m}{d}\le s$). $n|s$: $s=nqp$, $m|s$: $s=mq$; $p,q\in\NN$. 
+\begin{enumerate}
+\item $s=\frac{n}{d}dp \to \frac{s}{d}=\frac{n}{d}p$. 
+\item $s=\frac{m}{d}dq \to \frac{s}{d}=\frac{m}{d}q$.
+\end{enumerate} 
+So $\frac{s}{d}\in\NN$ and $\frac{n}{d}|\frac{s}{d}$ as well as $\frac{m}{d}|\frac{s}{d}$. $gcd(\frac{n}{d},\frac{m}{d})=1$. $\therefore$ $\frac{n}{d}\frac{m}{d}|\frac{s}{d}$. $\therefore$ $\frac{nm}{d^2}r=\frac{s}{d}$. $\therefore$ $\frac{nm}{d}r=s$. $\therefore$ $\frac{nm}{d} \le s$. \textbf{QED}.
+\end{proof}
+
+

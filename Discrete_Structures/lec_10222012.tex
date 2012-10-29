@@ -1,0 +1,57 @@
+\sektion{8}{Class Lecture 10/22}
+\subsektion{Quiz Debrief}
+\begin{example}[Division Algorithm]
+Let $n,m\in\ZZ,m>0$. Then there exist unique $q,r$ such that $n=mq+r$ and $0\le r < m$.
+\[ \forall n,m\in \ZZ (m > 0 \to \exists q,r \left( \left( n=mq+r \right) \wedge \left( 0 \le r < m \right) \right) \]
+\end{example}
+
+\begin{example}[Problem 3]
+$p$ is prime. $p$ is only divisible by 1 and $p$.
+\[ \not \exists x \in \NN \left( x|p \wedge 1 < x < p \right) \]
+\end{example}
+
+\begin{example}[Problem 4]
+One needs to solve this proof by cases:
+\begin{enumerate}
+\item a \& b are both even
+\item a \& b are both odd
+\item a is odd and b is even
+\item a is even and b is odd
+\end{enumerate}
+\end{example}
+
+\subsektion{Fundamental Theorem of Arithmetic}
+\begin{theorem}
+Every natural number $>$ 1 can be written as a unique product of primes.
+\end{theorem}
+\begin{theorem}[Textbook 2.5.1]
+Let $n\in\NN,n>1$. Then there is a unique sequence of primes $p_1 < p_2 < p_3 < \cdots < p_{k_n}$ (How many primes depends on $n$) and a unique sequence of natural numbers $s_1,s_2,\cdots,s_{k_n} \ge 1$ such that $n=p_1^{s_1}*p_2^{s_2}*\cdots*p_{k_n}^{s_{k_n}}$.
+\end{theorem}
+\begin{proof}
+\textbf{Part 1: Existence} By Strong Induction. 
+\begin{itemize}
+\item Base Case: $n=2$, 2 is prime. So $k_2=1$, $p_1 = 2$, $s_1=1$. $2=2^1$ \checkmark
+\item Induction Step:
+    \begin{itemize}
+    \item Let $j\in\NN,1<j$. Assuming that $\forall \ell \in \NN$ where $2\le \ell \le j$, $\ell$ can be written as a product of primes (according to sequence statement).
+    \item \emph{(To Show: $j+1$ can be written as a product of primes)}
+    \item Case 1: $j+1$ is prime. $k_{j+1}=1$, $p_1=(j+1)$, $s_1=1$. $\therefore$ $(j+1)=(j+1)^1$. \checkmark
+    \item Case 2: $j+1$ is composite. 
+        \begin{itemize}
+            \item We proved that a composite number $(j+1)$ is divisible by a prime $<$ $(j+1)$; i.e. $(j+1)=p(r)$, where $p$ is prime and $2\le r \le j$.
+            \item By Induction hypothesis, there is a product $p_1<p_2<\cdots<p_{k_r}$ and natural numbers so that $s_1,\cdots,s_{k_r} \ge 1$ and $r=p_1^{s_1}*p_1^{s_2}*\cdots*p_{k_r}^{s_{k_r}}$.
+            \item $\therefore$ $j+1=p(r)=p(p_1^{s_1}*p_1^{s_2}*\cdots*p_{k_r}^{s_{k_r}})$.
+            %\item Regardless of whether $p$ appears in the list of $p_1,\cdots,p_{k_r}$, we can produce a list $p_1,\cdots,p_{k_{j+1}}$ and $s_1,\cdots,s_{k_{j+1}}$ so that $j+1=p'_1^{s'_1}*p'_2^{s'_2}*\cdots*p'_{k_{j+1}}^{s_{k_{j+1}}}$
+            \item \textbf{QED} Existence
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\textbf{Part 2: Uniqueness}. Assume $n\ge 2$ and $n=p_1^{s_1}p_2^{s_2}\cdots p_{k_n}^{s_{k_n}} = q_1^{t_1}q_2^{t_2}\cdots q_{m_n}^{t_{m_n}}$, $q_1<q_2<\cdots<q_{m_n}$ are primes.
+\begin{itemize}
+\item \emph{(To Show: $k_n=m_n$ and $p_1=q_1$ and $p_2=q_2\cdots$ etc. and $s_1=t_1$ and $s_2=t_2\cdots$ etc.)}
+\item Consider $p_i$ where $1\le i \le k_n$ : $p_i| \left( q_1^{t_1}q_2^{t_2}\cdots q_{m_n}^{t_{m_n}} \right)$.
+\end{itemize}
+
+\end{proof}
+
+

@@ -1,0 +1,54 @@
+\sektion{11}{Class Lecture 10/29}
+\subsektion{Binomial Theorem Cont.}
+\[ (x+y)^n = \Matx{n \\ 0}x^ny^0+\Matx{n \\ 1}x^{n-1}y^1+\cdots+\Matx{n \\ n}x^0y^n=\sum^n_{k=0}\Matx{n \\ k}x^{n-k}y^k\]
+
+\begin{theorem}[Pascal's Identity]
+$n \ge k$, $k \ge 1$ $\underbrace{\Matx{n+1 \\ k}=\Matx{n\\k}+\Matx{n\\k-1}}_{\text{Proof by comb. argument.}}$
+\end{theorem}
+\begin{example}
+\[ \left( 2x - 3y \right)^5 \]
+What is the coefficient on the $x^2y^3$ term?
+\[ \cdots + \Matx{5\\2}(2x)^2(-3y)^3 + \cdots = \Matx{5\\2}2^2(-3)^3\]
+\end{example}
+\begin{example}
+\[ \left( \sqrt{x} + \sqrt[4]{y} \right)^8\]
+What is the coefficient on $x^2y^1$?
+\[ (\sqrt{x})^4\left( \sqrt[4]{y}\right)^4 = \Matx{8\\4}(\sqrt{x})^4(\sqrt[4]{y})^4 \]
+\end{example}
+\subsektion{Multinomial Theorem}
+\begin{example}
+\[ (x+y+z)^{10} \]
+We will have a term of the form $x^3y^4z^3$. What is the coefficient on this term?
+\[ \Matx{10\\3} \cdot \Matx{7\\4} = \Matx{10\\3,4,3}\]
+\end{example}
+\begin{example}
+\[ (x+y+z)^{10} = \underbrace{\sum_{a_1+a_2+a_3=10}}_{\text{where }a_1,a_2,a_3\ge0} \Matx{10\\a_1,a_2,a_3}x^{a_1}y^{a_2}z^{a_3}\]
+How many different terms are there? This is a Diaphantine Equation, so $a_1+a_2+a_3=10 \to \Matx{12\\2}$ terms.
+\end{example}
+\begin{theorem}[Multinomial Theorem]
+\[ (x_1+x_2+\cdots+x_k)^n = \underbrace{\sum_{a_1+a_2+\cdots+a_k=n}}_{\text{where }a_1,a_2,\cdots,a_k\ge0} \Matx{n \\ a_1,a_2,\cdots,a_k}\left( x_1^{a_1}x_2^{a_2}\cdots x_k^{a_k}\right) \]
+\end{theorem}
+\subsektion{Binomial Identities}
+Use the binomial theorem to prove some arithmetic facts that you otherwise could prove by induction.
+\begin{example}
+Application: Plugging in numbers for $x,y$.
+
+\[ (x+y)^n = \Matx{n\\0}x^ny^0+\Matx{n\\1}x^{n-1}y^1+\cdots+\Matx{n\\n}x^0+y^n \]
+\[ x=1,y=1\ (1+1)^n = 2^n = \Matx{n\\0}1^n(1)^0+\Matx{n\\1}(1)^{n-1}1^1+\cdots+\Matx{n\\n}1^01^n\]
+\[ x=1,y=-1;n\ge1\ \ (1+(-1))^n = 0^n = 0 = \Matx{n\\0}1^n(-1)^0+\Matx{n\\1}1^{n-1}(-1)^1+\cdots+\Matx{n\\n}1^0(-1)^n\]
+\[ 1-\Matx{n\\1}+\Matx{n\\2}-\Matx{n\\3}+\cdots+(-1)^n\Matx{n\\n}\]
+\end{example}
+\begin{example}
+Applicaiton: Use Calculus after plugging in for only one of the variables.
+
+\[ (x+y)^n \text{where } y=1\ \ (x+1)^n = \Matx{n\\0}x^n+\Matx{n\\1}x^{n-1}+\Matx{n\\2}x^{n-2}+\cdots+\Matx{n\\n}x^0\]
+Differentiate both sides with respect to x as a variable.
+\[ n(x+1)^{n-1} = n\Matx{n\\0}x^{n-1}+(n-1)\Matx{n\\1}x^{n-2}+\cdots+\Matx{n\\n-1}\]
+\end{example}
+\subsektion{Combinatorial Arguments Cont.}
+\begin{example}
+\[ \Matx{40\\8} = \overbrace{\Matx{25\\8}\cdot\Matx{15\\0}}^{\text{subtask}}+\Matx{25\\7}\cdot\Matx{15\\1}+\Matx{25\\6}\cdot\Matx{15\\2}+\cdots+\Matx{25\\0}\Matx{15\\8} \]
+We're choosing a committee of 8 from a company of 40 employees. In the company of 40 there are 15 managers and 25 regular employees.
+\end{example}
+
+

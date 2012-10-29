@@ -1,0 +1,95 @@
+\sektion{9}{Test Review 10/23}
+10 votes, 5 candidates $\Matx{11 \\ 4}$
+
+Fundamental Theorem of Arithmetic $\leftarrow$ strong induction
+
+\begin{example}
+If $n$ is an odd integer, $n^3$ is the sum of $n$ consecutive integers.
+\end{example}
+
+\begin{proof}
+\begin{itemize}
+\item Want to show that 27 is the sum of 3 consecutive integers. 8+9+7 = 27
+\item Want to show that 125 is the sum of 5 consecutive integers. 27+26+25+24+23 = 125
+\item $n^3$ = $n^2+1-n^2+2-\frac{n-1}{2}+n^2+n^2+1+n^2+2+\frac{n-1}{2}$
+\item n-1 is even since n itself is odd, there we can divide by 2 and get an integer.
+\item When we add them all up they turn into $n^3$.
+\end{itemize}
+\end{proof}
+
+\begin{example}
+Nobody doesn't like Sara Lee. What is the negation of this?
+\[\exists x \in W (\not L(x) )\]
+\[ \forall x \in W ( L(x) )\]
+\end{example}
+
+\begin{example}
+\[ \forall n \in \NN \left[ P(n) \to Q(n) \right] \]
+\begin{itemize}
+\item Direct Proof:
+    \begin{enumerate}
+        \item Let $n\in\NN$. Assume $P(n)$.
+        \item $\therefore$ $Q(n)$.
+    \end{enumerate}
+\item Contradiction Proof:
+    \begin{enumerate}
+    \item Let $n\in\NN$. Assume $P(n) \wedge \not Q(n)$.
+    \item $\therefore$ $P(n)\to Q(n)$.
+    \end{enumerate}
+\item Contrapositive Proof:
+    \begin{enumerate}
+    \item Let $n\in\NN$. Assume $\not Q(n)$.
+    \item $\therefore$ $\not P(n)$.
+    \end{enumerate}
+\end{itemize}
+\end{example}
+
+\begin{example}[5a]
+\[ \forall x\in W \left( \exists r \in W \left( \exists p \in T \left( Q(x,r,p) \right) \right) \right) \]
+\end{example}
+
+\begin{example}[7]
+Let $A,B$ be sets. Let them be subsets of the same universe $U$. Prove that if $A\subseteq B$, then $U \subseteq A \cup B$.
+\end{example}
+
+\begin{proof}
+Let $A \subseteq U$ and $B \subseteq U$. Assume $A \subseteq B$. (To Show: $U \subseteq A \cup B$). Let $x\in U$.
+
+By Cases:
+\begin{itemize}
+\item Case 1: $x\in \overline{A}$. $\therefore$ $x\in \overline{A}\cup B$.
+\item Case 2: Since $x \in A \wedge \left( A \subseteq B \right)$ $x \in B$ $\therefore$ $x \in \overline{A} \cup B$.
+\end{itemize}
+\end{proof}
+
+\begin{example}[6c]
+\[ 12 | (n-k) \leftrightarrow \left( n = 12p + r \right) \wedge \left( k = 12q + r \right)\ 0\le r < 12 \]
+\end{example}
+
+\begin{proof}
+Let $n,k\in\ZZ$. Assume $\left( n = 12p + r \right) \wedge \left( k = 12q + r \right)\ p,q\in\ZZ$. (To Show: $12|(n-k)$)
+\begin{itemize}
+\item $(n-k) = \left( 12p + r \right) - \left( 12q + r \right)$
+\item $12p-12q$
+\item $12(p-q)$
+\item $\therefore$ by definition $12|(n-k)$.
+\end{itemize}
+Assume that the remainders are not equal. (To Show: $12 \not |\ (n-k) $)
+\begin{itemize}
+\item $n=12p+r_1 \wedge k=12q+r_2 \wedge 0 \le r_1,r_2 < 12 \wedge r_1 \neq r_2$.
+\item $(n-k)=(12(p-q)+(r_1-r_2)$
+\item If $r_1 > r_2$, then $0 < r_1-r_2 < 12$.
+\item $\therefore$ since $r_1 \neq r_2$ and $(n-k)=(12(p-q)+(r_1-r_2)$ then $12 \not |\ (n-k) $.
+\end{itemize}
+\end{proof}
+
+\textbf{To Know:}
+\begin{itemize}
+\item set theory proof or stuff
+\item number theory proof or stuff
+\item counting problem
+\item formal logic stuff
+\end{itemize}
+
+
+
