@@ -1,0 +1,41 @@
+\sektion{19}{Class Lecture 11/19}
+\subsektion{Composition of Functions Cont.}
+\noindent
+\textbf{Recall:} We introduced 1-1 and onto to conclude that $F: A \to B$, then $F^{-1}$ is a function $F^{-1}:B\to A$ if and only if $F$ is 1-1 and onto.\\
+\textbf{Recall:} $F^{-1}(b)=a$ if and only if $F(a)=b$. ($bF^{-1}a$ iff $aFb$ $\leftarrow$ Relation exists no matter what).\\
+\textbf{Fact:} If $F$ is 1-1 and onto, $F:A\to B$, then $F^{-1}:B\to A$ is 1-1 and onto.
+\begin{proof}
+Let $b_1,b_2\in B$. Assume $F^{-1}(b_1)=F^{-1}(b_2)$. (To Show: $b_1=b_2$). Name $F^{-1}(b_1) = a$ (so a=$F^{-1}(b_2)$ as well). By definition $F(a)=b_1$, and $F(a)=b_2$. Since $F$ is a function, $b_1=b_2$. $\therefore$ $F^{-1}$ is 1-1.
+
+Let $a\in A$. (To Show: There is $b\in B$ such that $F^{-1}(b)=a$). $F(a)=b\in B$, because $F$ is a well defined function with domain $A$. $\therefore$ by definition, $F^{-1}(b)=a$.\footnote{Note that we only had to assume 1-1 and onto to get the $F^{-1}$ statement.}
+\end{proof}
+\begin{theorem}
+Let $F:A \to B$ be 1-1 and onto, and $F^{-1}:B\to A$. Then $F\cdot F^{-1}:B\to B$ is the identity function on $B$; i.e. $F\cdot F^{-1}(b)=b$. Similarly $F^{-1}\cdot F:A\to A$ is just the identity function on $A$
+\end{theorem}
+\begin{theorem}
+Let $F:A\to B$. If there is a function $G:B\to A$ such that $F\cdot G: B\to B$ is the identity on $B$, and $G\cdot F:A\to A$ is the identity on $A$, then $F$ is 1-1 and onto, and $G=F^{-1}$.
+\end{theorem}
+\begin{proof}
+By assumption, $F\cdot G$ is onto. $\therefore$ $F$ is onto. Also by assumption, $G\cdot F$ is 1-1, $\therefore$ $F$ is 1-1. Since $F$ is 1-1 and onto, $F^{-1}:B\to A$ (also 1-1 and onto). (To Show: $\forall b\in B$, $F^{-1}(b)=G(b)$)
+
+Let $b\in B$. $F(F^{-1}(b))=b$. Also, $F(G(b))=b$. Since $F$ is 1-1, $F^{-1}(b)=G(b)$.
+\end{proof}
+\subsektion{Pidgeon Hole Principle Cont.}
+\begin{example}
+There are 27 people in MTH311A (including Prof.). Show that there are at least 3 people who have their birthdays in the same month. $A$= people in MTH311A. $B = \left\{ \text{Jan, Feb, $\cdots$, Dec} \right\}$. $F(A)=b$ if $a$ was born in $b$. $|A|=27$ $|B|=12$; 27$>2\cdot12$
+\end{example}
+\begin{example}
+Show that in any set of 11 distinct integers $n_1,\cdots,n_{11}$, all between 1,20 inclusive (i.e. $1\le n_1,n_2,\cdots,n_{11} \le 20$), there must be at least 2 that differ by exactly 10.
+\[ n_1,\cdots,n_{11}\in \left\{ 1,2,\cdots,20\right\} \]
+We'd hope that: (1, 11), (2,12), (3,13), $\cdots$,(10,20) are among $n_1,\cdots,n_{11}$
+\[ A = \left\{ n_1,\cdots,n_{11}\right\} \]
+\[ B = \left\{ (1,11),(2,12),\cdots,(10,20) \right\} \]
+$F:A\to B$, $F(a)=\left\{ \begin{matrix} (a,a+10) & 1 \le a \le 10\\ (a-10,a) & 11\le a \le 20\end{matrix}\right.$, $|A|=11$ and $B=|10|$ $\therefore$ there must be $n_i \neq n_j$ so that $F(n_i)=F(n_j)$ $\therefore$ $F(n_i)=F(n_j)=(n_i,n_j)$ or $(n_j,n_i)$ where $|n_i-n_j|=10$.
+\end{example}
+\begin{example}
+Select 30 distinct numbers $a_1,\cdots,a_{30}$ from 1,$\cdots$,200. Consider all sums of the form $a_i+a_j$ where $i\neq j$. Show that at least 2 of these sums are the same (but neither number in the sum is the same). e.g. 1+16=2+15
+
+$\left\{ 3,\cdots,399 \right\} \text{ possible output} = B$
+\end{example}
+
+

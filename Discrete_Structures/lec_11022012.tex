@@ -1,0 +1,70 @@
+\sektion{14}{Class Lecture 11/2}
+Definition: \[ A \times B = \left\{ (a,b)\ |\ a \in A, b \in B \right\}\]
+Definition: A relation $R$ from $A$ to $B$ is a subset of $R\subseteq A \times B$.
+
+\begin{theorem}
+Let $A,B$ be sets.
+\[ |A| = n, |B| = m, |A \times B| = n\cdot m\] 
+\end{theorem}
+\begin{theorem}
+Let $A,B$ be sets. The number of distinct relations $R$ from $A$ to $B$ = $2^{n\cdot m}$. By definition a relation $R\subseteq A \times B$
+\end{theorem}
+\noindent
+Definition: Let $A,B$ be sets. Let $R$ be a relation from $A$ to $B$.$R^{-1}$ is a relation from $B$ to $A$ defined as follows:
+\[ bR^{-1}a \iff aRb\]
+NOTE: $R^{-1}\subseteq B \times A$.
+
+\noindent
+$A,B$, $A \times B$, relations from $A$ to $B$. But we can also think about $A,B,C$ 3-ary relations. How can we generalise this?
+\[ A \times B \times C = (A \times B) \times C; (a,b,c) = ((a,b),c) \]
+
+\noindent
+Definition: A binary relation from $A$ to $A$ is called a relation on $A$
+\begin{example}
+Let $A$ = the set of all people in the world. 
+
+Let $R_1 = \left\{ (a,b) : \text{ $a$ is biologically related to $b$} \right\}$
+\end{example}
+\begin{example}
+Let $A$ = the set of all people in the world. 
+
+Let $R_2 = \left\{ (a,b) : \text{ $a$ is taller than $b$} \right\}$
+\end{example}
+\begin{example}
+Let $A$ = the set of all people in the world. 
+
+Let $R_3 = \left\{ (a,b) : \text{ $a$ is at least as tall as $b$} \right\}$
+\end{example}
+\noindent
+Definition: Let $A$ be a set, $R$ a relation on $A$. $R$ is \emph{reflexive} if $\forall a\in A (aRa)$. i.e. $\forall a \in A ((a,b)\in R)$
+\[ R_1 : \text{ it makes sense to say that } (a,a) \in R_1 \]
+\[ R_2 : \text{ not reflexive; anti-reflexive} \to \forall a \in A ((a,a) \not \in R) \]
+\[ R_3 : \text{ reflexive.} \]
+
+\noindent
+Definition: Let $A$ be a set, $R$ a relation on $A$. $R$ is \emph{symmetric} if $\forall a,b \in A (aRb \to bRa)$
+\[ R_1 : \text{ symmetric.}\]
+\[ R_2 : \text{ not symmetric; anti-symmetric} \to \forall a,b \in A (aRb \not \to bRa) \]
+\[ R_3 : \text{ not symmetric; not anti-symmetric.} \]
+
+\noindent
+Definition: Let $A$ be a set, $R$ a relation on $A$. $R$ is \emph{transitive} if $\forall a,b,c \in A ((aRb \wedge bRc)\to aRc)$
+\[ R_1 : \text{ not transitive.}\]
+\[ R_2 : \text{ transitive.} \]
+\[ R_3 : \text{ transitive.} \]
+
+\noindent
+Definition: Let $A$ be a set, $R$ a relation on $A$. $R$ is an \emph{equivalence relation} on $A$ if $R$ is reflexive, symmetric, and transitive.
+\begin{example}
+Let $A$ be a non-empty set. $R$ is the equality relation; i.e. $(a,a)\in R \iff a=b$
+\end{example}
+\begin{proof}[$R$ is an equivalent relation]
+
+\begin{enumerate}
+\item Reflexive: Let $a\in A$. Assume $a=a$. $\therefore\ (a,a)\in R$.
+\item Symmetric: Let $a,b \in A$. Assume $aRb$. $\therefore\ a=b\ \therefore b=a\ \therefore bRa$.
+\item Transitive:
+\end{enumerate}
+\end{proof}
+
+

@@ -1,0 +1,53 @@
+\sektion{17}{Class Lecture 11/14}
+\begin{theorem}
+The set $(0,1)$ = $\left\{ r\in\RR\ |\ 0<r<1 \right\}$ is \emph{not} countable.
+\end{theorem}
+\begin{proof}
+Every real number between 0 and 1 can be written as a string of decimals that isn't .0000 or $\cdots$ .99999$\cdots$. Also, given a real number $r$ with $0<r<1$ its decimal representation is unique as long as we agree not to end with an inifnite string of 9's. (i.e. .5 = .5000000 = .4999999). \\ By contradiction. Assume that the set $(0,1)$ is countable. $\therefore\ |\NN|=|(0,1)|$. $\therefore$ there is an $F:\NN \to (0,1)$ that is 1-1 and onto. i.e. $F(0)=r_0$ and $F(1)=r_1$\footnote{where $r_0,r_1\in(0,1)$}
+\begin{enumerate}
+\item Define a real \# $s$ such that $0<s<1$ and $s\neq r_i$ for any $i\in\NN$.
+\item We need to specify $s$'s decimal digits.
+\item Specifying the tenths digit of  $s$: look at $r_0$ and ask what it's tenths digit is
+\item If $r_0$'s tenths digit is 2, we make the tenths digit of $s$ be 3. ($s=.3$)
+\item If $r_0$'s tenths digit is not 2, we make the tenths digit of $s$ be 2. ($s=.2$)
+\item Specifying the hundredths digit of  $s$: look at $r_0$ and ask what it's tenths digit is
+\item If $r_1$'s hundredths is 2, we make the hundredths digit of $s$ be 3. ($s=.23$)
+\item If $r_1$'s hundredths is not 2, we make the hundredths digit of $s$ be 2. ($s=.22$)
+\end{enumerate}
+$|A| < |\mathcal{P}(A)|$.
+\end{proof}
+\subsektion{Composition of Functions}
+\noindent
+Definition: $F:A\to B$, $G:B\to C$, then $G\cdot F:A\to C$.
+\begin{example}
+$F:\RR\to\RR^{\ge 0}$ $F(r)=e^r$ \\
+$G:\RR^{\ge 0}\to\RR$ $G(r)=\sqrt{r}$ \\
+$G\cdot F(r) = G(e^r) = \sqrt{e^r} = (e^{r})^{\frac{1}{2}} = e^{\frac{r}{2}}$ \\
+$F\cdot G(r) = F(G(r)) = F(\sqrt{r}) = e^{\sqrt{r}}$\footnote{$\therefore\ G\cdot F \not \equiv F \cdot G$}
+\end{example}
+\begin{proposition}
+If $F:A\to B$, $G: B \to C$ are 1-1 functions, then $G\cdot F: A \to C$ is also 1-1.
+\end{proposition}
+\begin{proof}
+(To Show: $G\cdot F(a_1) = G \cdot F(a_2) \to a_1=a_2$)\\
+Let $a_1,a_2\in A$. Assume $G\cdot F (a_1) = G\cdot F(a_2)$. By definition $G(F(a_1))=G(F(a_2))$. Since $G$ is 1-1, $F(a_1)=F(a_2)$. $\therefore\ a_1=a_2$ because $F$ is 1-1.
+\end{proof}
+\begin{proposition}
+If $F:A\to B$, $G:B\to C$ are onto, then $G\cdot F:A \to C$ is onto.
+\end{proposition}
+\begin{proof}
+Let $c\in C$ (To Show: there is $a\in A$ with $G\cdot F(a)=c$). $\therefore$ there is $b\in B$ such that $G(b)=c$ because $G$ is onto. $\therefore$ there is $a\in A$ such that $F(a)=b$ because $F$ is onto. Hence $F(a)=b$ and $G(b)=c$, so $G(F(a))=c$ so $G\cdot F(a)=c$.
+\end{proof}
+\begin{proposition}
+Let $F:A\to B$, $G:B\to C$ be functions. If $G\cdot F:A \to C$ is 1-1, then $F$ must be 1-1.
+\end{proposition}
+\begin{proof}
+(To Show: $F:A \to B$ is 1-1; $a_1=a_2$). Let $a_1,a_2\in A$. Assume $F(a_1)=F(a_2)$ and $G\cdot F:A\to C$ is 1-1. Since $F(a_1)=F(a_2)$, $G(F(a_1))=G(F(a_2))$ by definition of a function.$G\cdot F(a_1) = G \cdot F (a_2)$. $\therefore\ a_1=a_2$ because $G\cdot F$ is 1-1.
+\end{proof}
+\begin{proposition}
+If $F:A \to B$, $G: B \to C$, are functions. If $G\cdot F: A \to C$ is onto, then $G:B \to C$ is onto.
+\end{proposition}
+\begin{proof}
+Assume $G\cdot F: A \to C$ is onto. (To Show: $G:B\to C$ is onto). Let $c\in C$. (To Show: some $b\in B$ is such that $G(b)=c$). Since $G\cdot F$ is onto, there is $a\in A$ such that $G \cdot F(a)=c$. So $G(F(a))=c$. Let $b=F(a)$, so $G(b)=c$.
+\end{proof}
+

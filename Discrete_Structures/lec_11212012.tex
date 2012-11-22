@@ -1,0 +1,28 @@
+\sektion{20}{Class Lecture 11/21}
+\subsektion{Pidgeon Hole Principle Cont.}
+\begin{example}
+We have 30 distinct $a_1,\cdots,a_{30}\in\left\{ 1,\cdots,200\right\}$. Claim: If we look at the sums of $a_i+a_j$ ($i\neq j$), then two of these sums must add up to the same number. $B = \left\{ 3,\cdots,399 \right\}$\footnote{all possible sums of 2 numbers from $\{ 1,\cdots,200 \}$}. $A= \{ \{a_i,a_j\}\ |\ i\neq j\}$. $F(\{a_i,a_j\})=a_i+a_j$. $|A|=\Matx{30\\2}=435$ $|B|=(399-2)=397$. $\therefore$ $|A| > 397$ so $F$ cannot be 1-1.
+\end{example}
+\begin{example}Show that in a set of 251 distinct integers from $1,\cdots,500$ there must be at least 2 consecutive ones.\footnote{Intuition: Let's say our set included all 250 evens (2,4,6,$\cdots$,500) Then the "last number" $a_{251}$ must be odd, so it must be in a consecutive pair with one of the evens.}
+
+\end{example}
+\subsektion{Inclusion/Exclusion Principles}
+\noindent
+Fact: Let $A,B\subseteq\mathcal{U}$.
+\[ |A \cup B|= |A| + |B| - |A \cap B| \]
+\[ \left|\overline{A \cup B}\right| = |\mathcal{U}| - |A| - |B| + |A \cap B| \]
+\[ A = A\setminus B \cup (A \cap B) \]
+\begin{example}
+$|\mathcal{U}|=22$. $A = \{ p | p \text{ reads a newspaper everyday} \}\ |A|=2$. $B = \{ p | p \text{ reads an online newsite everyday} \}\ |B|=15$. $\left|\overline{A \cup B} \right|=7$.
+\end{example}
+\begin{example}
+$\left| A \cup B \cup C \right|$\footnote{There are 8 basic regions in this set. In other words, the number of basic regions is given by $2^n$ where $n$ is the number of sets.}$=|A|+|B|+|C|-|A \cap B|-|A \cap C|-|B \cap C|+|A \cap B \cap C|$.
+\end{example}
+\begin{example}
+\[ \left| \overline{A \cup B \cup C}\right|- |\mathcal{U}| - \left( \right) \]
+\[ S_1,\cdots,S_n\subseteq\mathcal{U} \]
+\[ |S_1\cup,\cdots,\cup S_n = |S_1|+\cdots+|S_n|-|S_1 \cap S_3|-\cdots-|S_1 \cap S_n| -\cdots-|S_{n-1}\cap S_n|+ \]
+\[ |S_1 \cap S_2 \cap S_3| +\cdots+ |S_{n-2} \cap S_{n-1} \cap S_n| \cdots (-1)^{n-1}|S_1 \cap \cdots \cap S_n|\]
+\end{example}
+
+

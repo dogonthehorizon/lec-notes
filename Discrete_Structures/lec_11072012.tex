@@ -1,0 +1,36 @@
+\sektion{14}{Class Lecture 11/7}
+Last Time: On $\ZZ$, we have $\equiv \mod k$ relation: $n \equiv m(\mod k) \iff k|(n-m)$.
+\[ [n]{\mod k} = \left\{ m\ |\ m \equiv n (\mod k) \right\} \subseteq \ZZ \]
+\[ \underbrace{[0]_{\mod 3} \cup [1]_{\mod 3} \cup [2]_{\mod 3}}_{\text{This union is pairwise disjoint.}} = \ZZ \]
+
+
+\noindent
+Definition: Let $A \neq \emptyset$. A finite partition of $A$ is a collection of subsets of $A : \left\{ A_1,A_2,\cdots,A_k \right\}$ with the following properties:
+    \begin{enumerate}
+        \item $A_i \subseteq A$ for every $i$
+        \item $A_1 \cup A_2 \cup \cdots \cup A_k = A$
+        \item $A_i \cap A_j = \emptyset$ or $[a_i]_R \cap [a_j]_R = \emptyset$ if  $i \neq j$ .
+        \item Each $[a_i]_R \neq \emptyset$
+    \end{enumerate}
+\begin{theorem}[Textbook 6.2.12]
+Let $A \neq \emptyset$, $R$ is an equivalence relation on $A$ with only finitely many different equivalence classes. Then these equivalence classes form a finite partition of $A$.
+\end{theorem}
+\begin{proof}
+Let $a_1,a_2,\cdots,a_k\in A$ such that for every $b\in A$, $[b]_R=[a_i]_R$ for some $i$. (To Show: The collection of $[a_1]_R,[a_2]_R,\cdots,[a_k]_R$ forms a partition of $A$). Assume (without loss of generality) that $[a_i]_R\neq[a_j]_R$ if $i\neq j$.
+\begin{enumerate}
+    \item \checkmark By definition.
+    \item Let $x\in A$. By assumption of how we chose $a_1,\cdots,a_k$, $[x]_R = [a_i]_R$. Because $R$ is reflexive, $xRx$ $\therefore\ x\in [x]_R$. $\therefore x\in[a_i]_R$. $\therefore x\in[a_i]_R\cup\cdots\cup[a_k]_R$. \checkmark
+    \item By contradiction. Assume $b\in A$ with $b\in[a_i]_R\cap[a_j]_R$. $\therefore\ bRa_i$; $bRa_j$. By symmetry $a_iRb$ and $bRa_j$. By transitivity $a_iRa_j$. (To Show: for a contradiction we're going to show that $[a_i]_R=[a_j]_R$). Let $x\in[a_i]_R$. $\therefore\ xRa_i$ and $xRa_j$; $\therefore\ xRa_j$. $\therefore\ x\in [a_j]_R$. $\therefore [a_i]_R\subseteq[a_j]_R$. Let $y\in[a_j]_R$. $\therefore\ yRa_j$. Since $R$ is symmetric $a_jRa_i$. $\therefore\ yRa_i$, $\therefore\ y\in[a_i]_R$. $\therefore [a_j]_R\subseteq[a_i]_R$.Contradiction! \checkmark
+    \item Since $R$ is reflexive $a_iRa_i$, $\therefore\ a_i\in[a_i]_R$, $\therefore\ [a_i]_R\neq\emptyset$. \checkmark
+\end{enumerate}
+\end{proof}
+\subsektion{Functions}
+Definition: A function $F$ from $A$ to $B$ is a particular type of relation from $A$ to $B$.
+\[ \left( F \subseteq A \times B\right) \text{ where the following is true:}\]
+\begin{enumerate}
+    \item $ \forall a \in A \exists b \in B \left( (a,b) \in F \right) $
+    \item $ \forall a \in A \forall b_1,b_2 \in B \left[ \left( (a,b_1) \in F \wedge (a,b_2) \in F\right) \to b_1 = b_2 \right] $
+    %\footnote{(a,b)\in F \iff aFb \iff F(a) = b} math mode footnotes.
+\end{enumerate}
+
+

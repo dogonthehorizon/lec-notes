@@ -1,0 +1,57 @@
+\sektion{13}{Class Lecture 10/31}
+\subsektion{Block Walking Arguments}
+BWA's are a certain kind of combinatorial argument. By convention we start in the top left corner and label it $\Matx{0\\0}$. At some pt $\Matx{n\\r} \leftarrow$ we're $n$ total spaces from the origin, and we've moved $r$ spaces to the right. (Assuming we can only move down and/or right). $\Matx{n\\r}$ is equal to the number of path from the origin to the point label. \emph{We use this grid to derive arithmetic formulas.}
+
+\begin{example}[Pascal's Identity]
+$\Matx{n+1\\r} = \Matx{n\\r}+\Matx{n\\n-1}$
+\end{example}
+\begin{proof}
+To get to the point $\Matx{n+1\\r}$ you have to go either through $\Matx{n\\r}$ or the point $\Matx{n\\r-1}$ and these methods are mutually exclusive. By the addition principle: 
+
+\[ \Matx{n+1\\r} = \Matx{n\\r}+\Matx{n\\n-1} \]
+\end{proof}
+\begin{example}
+For $k\ge0$, $\Matx{k\\0}+\Matx{k+1\\1}+\cdots+\Matx{k+r\\r}=\Matx{k+r+1\\r}$.
+\end{example}
+\begin{proof}
+Crossing over
+\end{proof}
+\subsektion{Discrete Probability}
+\begin{enumerate}
+\item An \emph{experiment} is an action with measruable, equally likely outcomes.
+\item The \emph{sample space} is the set of al possible outcomes to the experiment.
+\item An \emph{event} is a subset of the sample space.
+\item In an experiment with a finite sample space $S$, the probability of an event $E\subseteq S$ is $P(E) = \frac{|E|}{|S|}$
+\end{enumerate}
+\begin{example}
+The experiment is a roll in the game of craps; i.e. a roll of a pair of dice. One die is red and one die is green. Sample Space = $\left\{ (1,1), (1,2), \cdots, (6,6) \right\}$. One event in this experiment is the event of rolling a "7" = $\left\{ (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) \right\}$. Another event is "rolling a 2" = $\left\{ (1,1) \right\}$
+
+\[ \text{"Rolling a 7" } \to P(E)=\frac{6}{36}=\frac{1}{6} \]
+\[ \text{"Rolling a 2" } P(F) = \frac{1}{36}\]
+\end{example}
+\begin{theorem}
+\[ P(\overline{E}) = \frac{|S-E|}{|S|} = 1 - P(E)\]
+\end{theorem}
+\subsektion{Conditional Probability}
+\begin{theorem}
+Let $E,F$ be two events for the same experiment. The conditional probability of $E$, given $F$, $P(E|F) = \frac{|E \cap F|}{|F|}$.
+\end{theorem}
+\subsektion{Relations}
+Idea: Let $A,B$ be sets. A relation $R$ from $A$ to $B$ expresses one way in which the elements of $A$ are related to the elements in $B$.
+\begin{example}
+Let 
+\[ A=\left\{ a\ |\ a \text{ is a student in MTH311 fall 2012 }\right\} \]
+\[ B = \left\{b\ |\ b \text{ is a flavor of B-R ice cream}\right\}\]
+One relation $R$ from $A$ to $B$ is defined as follows: $aRb$ (i.e. $(a,b)\in R$) $\iff\ a$ likes $b$.
+\[ ColinRCookiedough;\ (Colin, Cookiedough)\in R \]
+\[ (Colin \not R Mint);\ (Colin,Mint)\not\in R\]
+\[ (Taylor,Cookiedough)\in R\]
+\end{example}
+\begin{theorem}
+Let $A,B$ be sets. $A \times B =$ Cartesian product of $A,B= \left\{ (a,b) | a\in A, b\in B \right\}$.
+\end{theorem}
+\begin{theorem}
+A relation $R$ from $A$ to $B$ is a subset of $A \times B$
+\end{theorem}
+
+

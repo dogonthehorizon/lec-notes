@@ -1,0 +1,42 @@
+\sektion{13}{Class Lecture 11/5}
+Definition: Let $A$ be a set, $R$ a relation on $A$.$R$ is an equivalence relation on  $A$ iff:
+\begin{enumerate}
+\item $R$ is reflexive; for $a\in A, (a,a)\in R (aRa)$
+\item $R$ is symmetric; for $a,b\in A, (a,b)\in R \to (b,a)\in R$
+\item $R$ is transitive; for $a,b,c \in A, \left[(a,b)\in R \wedge (b,c) \in R \right] \to (a,c)\in R$
+\end{enumerate}
+
+\begin{proof}
+Let $A\neq \emptyset, =$ A is an equivalent relation. \[ \underbrace{\forall a,b\in A (aRb \leftrightarrow a = b)}_{\text{ the equality relation is an equivalent relaiton on A}} \]
+
+\noindent
+Reflexivity: Let $a\in A$. $a=a$ so $aRa$. \checkmark \\
+Symmetry: Let $a,b\in A$. Assume $aRb$. $\therefore\ a=b\ \therefore\ b=a$. $\therefore\ bRa$ \checkmark \\
+Transitivity: Let $a,b,c\in A$. Assume $aRb, bRc$. $\therefore\ a=b \wedge b=c$. $\therefore a =c,\ \therefore\ aRc$.
+\end{proof}
+\begin{example}
+Let $ A = \{ a$ : $a$ is a person$\}$. $R$ be the relation: $aRb \leftrightarrow a$ and $b$ have the same shoe size.
+\end{example}
+\begin{example}
+Let $ A = \ZZ$, and let $k\in\ZZ, k > 0$ ($k$ is fixed). We say that two integers $a,b$ are "congruent mod $k$" and we write $a\equiv b (\mod k)$  iff $k|(a-b)$. Show that $\equiv\mod k$ is an equivalence relation.
+\end{example}
+\begin{proof} (To Show: $\equiv \mod k$ is an equivalence relation.) \\
+Reflexive:  Let $a\in A$. $a=b$ and $k|(a-b)$. $k|0$ $\therefore\ a\equiv a \mod k$. \checkmark \\
+Symmetric: Let $a,b\in A$. Assume $a\equiv b \mod k$. $\therefore$ $k|(a-b)$. (To Show: $b \equiv a \mod k$; i.e. $k|(b-a)$). $\therefore\ (a-b)=kt$. $(b-a)=k(-t)$. $\therefore\ k|(b-a)$. \checkmark \\
+Transitivity: Let $a,b,c\in A$. Assume $a\equiv b \mod k$ and $b \equiv c \mod k$. (To Show: $a \equiv c \mod k$; i.e. $k|(a-c)$). $(a-b)=kt$ and $(a-c)=ks$. $(a-(c+ks))=kt$. $(a-c)=k(t+s)$. $k|(a-c)$ \checkmark
+\end{proof}
+
+\begin{example}
+Let $A=\ZZ$, $k=3$. Look at $n\equiv m (\mod 3)$.\footnote{$[1]_{(\mod 3)}$ $\leftarrow$ We will use this notation in class.}
+
+\[ [1]_{(\mod 3)} = \left\{ n\in\ZZ\ |\ n\equiv 1 (\mod 3) \right\}\]
+Equivalence class of 1 under the relation$\mod 3$.
+\[ [a]_R = \text{ equivalence class of $a$ under $R$} \to \left\{\cdots,-8,-5,-2,1,4,7,10,13,\cdots \right\} \]
+$\therefore\ a\equiv b(\mod k) \iff a,b$ have the same remainder wen you divide each by $k$.\footnote{This will be a part of a future homework assignment.}
+\[ [0]_{(\mod 3)} = \left\{ \cdots,-9,-6,-3,0,3,6,9,\cdots \right\} \]
+\[ [2]_{(\mod 3)} = \left\{ \cdots,-4,-1,2,5,8,\cdots \right\} \]
+\[ [0]_{(\mod 3)} \cup [1]_{(\mod 3)} \cup [2]_{(\mod 3)} = \ZZ \]
+Pairwise disjoint!
+\end{example}
+
+

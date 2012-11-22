@@ -1,55 +1,40 @@
-\sektion{2}{Class Lecture 9/25}
+\sektion{1}{Class Lecture 9/25}
 
-Def$^n$: Prime \\
-Def$^n$: Relatively Prime \\
-
-\textbf{Axiom:} For any non-zero ratio r=$\frac{p}{z}$, where $p,z \in \ZZ$, p and q are relatively prime.
-
-
-\textbf{Thm. 2.2.2:} $\sqrt{2}$ is irrational.
-\\ \\
-\textbf{Proof:} 
-\begin{enumerate}
-\item \underline{By contradiction.} Assume $\sqrt{2}$ is rational. 
-\item $\therefore \ \sqrt{2} = \frac{p}{z}$, where p and q are relatively prime.
-\item $\left( \sqrt{2} \right)^2 = (p)^2$
-\item $\left( \sqrt{2} \right)^2 (q)^2 = (p)^2$
-\item $2q^2 = p^2$
-\item $\therefore\ p^2$ is even. What does tat about p?
-\item Because odd odd = odd, p must be even
-\item $\therefore\ 2|p$, so $p=2k$ for some $k\in U$
-\item $2q^2 = (2k)^2 \to 2q^2 = 4k^2 \therefore q^2 = 2k^2$
-\item By the same arguments as above, q is even $\therefore\ 2|q$. So $2|p$ and $2|q$.
-\item Hence, p and q are not relatively prime. So p and q are relatively prime and p and q are not relatively prime.
-\item $\therefore$ Our assumption that $\sqrt{2}$ is ratiional must be false; i.e. $\sqrt{2}$ is irrational. \textbf{QED}
-\end{enumerate}
-
-\textbf{Thm:} There are irrational  numbers $r,s$ so that $r^s$ is rational.
-\\
-\\
-\textbf{Proof}
+\begin{definition}
+For any non-zero ratio r=$\frac{p}{z}$, where $p,z \in \ZZ$, p and q are relatively prime.
+\end{definition}
+\begin{theorem}[Textbook 2.2.2]
+$\sqrt{2}$ is irrational.
+\end{theorem}
+\begin{proof}\underline{By contradiction.} Assume $\sqrt{2}$ is rational. $\therefore \ \sqrt{2} = \frac{p}{z}$, where $p$ and $q$ are relatively prime. $\left( \sqrt{2} \right)^2 = (p)^2$. $\left( \sqrt{2} \right)^2 (q)^2 = (p)^2$. $2q^2 = p^2$. $\therefore\ p^2$ is even. What does that say about p?. Because odd$\cdot$odd = odd, p must be even. $\therefore\ 2|p$, so $p=2k$ for some $k\in U$. $2q^2 = (2k)^2 \to 2q^2 = 4k^2 \therefore q^2 = 2k^2$. By the same arguments as above, $q$ is even $\therefore\ 2|q$. So $2|p$ and $2|q$. Hence, p and q are not relatively prime. So p and q are relatively prime and p and q are not relatively prime. $\therefore$ Our assumption that $\sqrt{2}$ is rational must be false; i.e. $\sqrt{2}$ is irrational.
+\end{proof} 
+\begin{theorem}
+There are irrational  numbers $r,s$ so that $r^s$ is rational.
+\end{theorem}
+\begin{proof} By Cases.
 \begin{enumerate}
 \item Consider $r=\sqrt{2}$ and $s=\sqrt{2}$. Look at $r^s=\sqrt{2}^{\sqrt{2}}$
 \begin{enumerate}
-	\item $\sqrt{2}^{\sqrt{2}}$ is rational. Done this case! $r=p$ and $s=q$
-	\item $\sqrt{2}^{\sqrt{2}}$ is irrational: Consider $r=\sqrt{2}^{\sqrt{2}}$ and $s=\sqrt{2}$. Double rational needs fixing%$r^2=\left\sqrt{2}^{\sqrt{2}}\right^{\sqrt{2}}$. \textbf{QED}
-	%troubleshoot double superscript
+	\item $\sqrt{2}^{\sqrt{2}}$ is rational. \ck $r=p$ and $s=q$
+	\item $\sqrt{2}^{\sqrt{2}}$ is irrational: Consider $r=\sqrt{2}^{\sqrt{2}}$ and $s=\sqrt{2}$. $r^2=\left( \sqrt{2}^{\sqrt{2}}\right)^{\sqrt{2}}$. \ck
 \end{enumerate}
 \end{enumerate}
+\end{proof}
+\subsektion{Well Ordering Principle}
+\begin{theorem}[Well Ordering Principle]
+Every non-empty subset of $\NN$ contains a least one element.
 
-\subsektion{More Skipping Around}
-\textbf{Axiom:} Well-Ordering Princple -- Every non-empty subset of $\mathbb{N}$ contains a least element
-\\
-\[ \forall A \subseteq \mathbb{N} \left[\ A \neq \emptyset \to \exists x \in A \left( \forall X \in A \left( x <= y \right) \right)\ \right]\]
-
-Thm 2.2.4 Every natural number $>$ 1 is divisible by some prime. 
-\[\forall n \in \mathbb{N} \left( n > 1 \to \exists p \in \mathbb{N} \left( p is prime and p|n \right) \right) \] %Fix the last statement
-\\ \\
-Proof: 
+\[ \forall A \subseteq \NN \left[\ A \neq \emptyset \to \left( \exists x \in A \left( \forall x \in A \left( x <= y \right) \right)\right)\ \right]\]
+\end{theorem}
+\begin{theorem}[Textbook 2.2.4]
+Every natural number $>$ 1 is divisible by some prime. 
+\[\forall n \in \mathbb{N} \left( n > 1 \to \exists p \in \mathbb{N} \left( p \text{ is prime and } p|n \right) \right) \]
+\end{theorem}
+\begin{proof}
 \begin{enumerate}
-\item Let $n\in\mathbb{N}$. Assume $n>1$.
+\item Let $n\in\NN$. Assume $n>1$.
 \item Case 1: $n$ is prime. 
-\begin{enumerate}\item $n|n$, because $n = n \times 1$. Done \end{enumerate}
+\begin{enumerate}\item $n|n$, because $n = n \cdot 1$. \ck \end{enumerate}
 \item Case 2: $n$ is composite.
 \begin{enumerate}
 	\item $\therefore$ $n$ has a non-trivial divisor
@@ -58,10 +43,6 @@ Proof:
 	\item So $d \in A\ \therefore A \neq \emptyset$
 \end{enumerate}
 \end{enumerate}
-
-\subsektion{Quiz 2 Review}
-3b. $\exists x \in D \left( \forall y \in U  \left( f(\pi y) = 0 \right) \right)$ 
-
-%diagram of a triangle, sqrt(2) hypotenus, 1 on legs
+\end{proof}
 
 

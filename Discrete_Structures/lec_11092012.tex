@@ -1,0 +1,65 @@
+\sektion{15}{Class Lecture 11/9}
+\noindent
+Definition: $F$ is a function if $F$ staisfies the following two propositions:
+\begin{enumerate}
+\item $\forall a \in A \exists b \in B \left( (a,b) \in F \right)$
+\item $\forall a \in A \forall b_1,b_2\in B \left[ \left( (a,b) \in F \wedge (a,b_2\in F \right) \to b_1=b_2 \right]$
+\end{enumerate}
+
+\noindent
+Definition: If $F$ is a function from $A$ to $B$, $A$ is called the domain of the function $F$; $B$ is called the co-domain of $F$. The range of $F = \left\{ b\in B\ |\ \exists a \in A (F(a)=b) \right\}$\footnote{Can also be written as $F=F(A)$}
+\begin{example}
+$R$ is the "like" relation from $A$ = class of MTH311 students. $B$ = set of 31 BR ice cream flavors.
+\begin{enumerate}
+\item Is $R$ is a function? (Ethan, choc.), (Ethan, straw.) $\in R$ $\therefore$ not a function.
+\end{enumerate}
+Modify the question to choosing a favorite flavor: $F\subseteq R$. $\therefore$ F(Ethan) = straw. is a function.
+\end{example}
+\begin{proposition}
+Let $A,B$ be finite sets. How many distinct functions are there from $A$ to $B$?
+\end{proposition}
+\begin{proof}
+\begin{itemize}
+\item If $A=\emptyset$, $B=\emptyset$, then $F=\emptyset$ is the only function from $A$ to $B$.
+\item If $A=\emptyset$ and $B\neq\emptyset$, then $F=\emptyset$ is the only function from $A$ to $B$.
+\item If $A=\neq\emptyset$ and $B=\emptyset$, then there are 0 functions from $A$ to $B$.
+\item If $A\neq\emptyset$, and $B\neq\emptyset$, say $|A| = n > 0$ and $|B| = m > 0$.
+\[ A = \left\{ a_1,a_2,\cdots,a_n\right\} \]
+\[ B = \left\{ b_1,b_2,\cdots,b_m\right\} \]
+Build a function from $A$ to $B$.
+\[ \begin{matrix} a_1 & b_1\\ a_2 & b_2 \\ \vdots & \vdots \\ a_n & b_m\end{matrix}\]
+\item Subtask 1: Where to send $a_1$? $m$
+\item Subtask $n$: Where to send $a_n$? $m$
+\item Number of functions from $A$ to $B$ = $m^n = |B|^{|A|}$.
+\item $0^n$ = 0
+\item $m^0$ ($m > 0$) = 1
+\item $0^0$ = 1
+\end{itemize}
+\end{proof}
+\begin{theorem}[Textbook 6.3.5]
+Include later
+\end{theorem}
+\begin{proposition}
+If $F$ is a function from $A$ to $B$, is $F^{-1}$ a relation from $B$ to $A$? \textbf{Yes.}
+\end{proposition}
+\begin{proposition}
+If $F^{-1}$ a function from $B$ to $A$? \textbf{Maybe.}
+\end{proposition}
+\noindent
+$F^{-1}$ would have to satisfy 2 conditions:
+\begin{enumerate}
+\item $\forall b \in B \exists a \in A \left( (b,a) \in F^{-1} \right)$
+    \begin{itemize}
+        \item $F^{-1} = \left\{ a\in A\ |\ F(a) = b\right\}$
+    \end{itemize}
+\item $\forall b \in B \forall a_1,a_2\in A \left[ \left( (b,a_1) \in F \wedge (b,a_2\in F^{-1} \right) \to a_1=a_2 \right]$
+    \begin{itemize}
+        \item $F^{-1} = \left\{ a\in A\ |\ F(a) = b\right\}$
+    \end{itemize}
+\end{enumerate}
+
+\noindent
+$\therefore\ F$ is a one-to-one function (or, injective).
+
+
+
