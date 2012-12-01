@@ -1,5 +1,4 @@
 lec-notes
 =========
 
-
-Compiled LaTeX notes for public use. More information can be acquired via e-mail: freire14 (at) up (dot) edu.
+LaTeX sources for various classes at the University of Portland. More information can be acquired via e-mail: freire14 (at) up (dot) edu.
